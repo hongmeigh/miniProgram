@@ -13,8 +13,10 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.2",
 	"appid": "wxbadd77563dc6c61d",
-	"projectname": "business-app",
+	"projectname": "video_app",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

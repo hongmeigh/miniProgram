@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        video: 'https://ent-21.oss-cn-shanghai.aliyuncs.com/meeting/106d6475-7318-4867-9a4e-c87acd7c54ba.mp4',
+        tabIndex: 0,
+        video: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
         video2: 'https://ent-21.oss-cn-shanghai.aliyuncs.com/meeting/5ca1ddf6-ae16-41fc-972f-9d979632463a.mp4'
     },
 
@@ -15,7 +16,11 @@ Page({
     onLoad: function (options) {
 
     },
-
+    changeTab(e) {
+        this.setData({
+            tabIndex: e.target.dataset.tab
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

@@ -1,4 +1,26 @@
 <!--pages/videodetail/videodetail.wxml-->
 <view class="video-detail-wrap">
-    这里是视频详情页面
+    <view class="video-wrap">
+        <video class="video-v" src="{{video2}}" controls></video>
+    </view>
+    <view class="video-info">
+        <view class="info-tab">
+            <view bindtap="changeTab" data-tab="0" class="tab-item tab-{{tabIndex == 0 ? 'active' : 'no'}}">讲者简介</view>
+            <view bindtap="changeTab" data-tab="1" class="tab-item tab-{{tabIndex == 1 ? 'active' : 'no'}}">会议详情</view>
+            <view bindtap="changeTab" data-tab="2" class="tab-item tab-{{tabIndex == 2 ? 'active' : 'no'}}">评论</view>
+            <view bindtap="changeTab" data-tab="3" class="tab-item tab-{{tabIndex == 3 ? 'active' : 'no'}}">附件预览</view>
+        </view>
+        <view wx:if="{{tabIndex == 0}}" class="introduce">
+            这里是讲师的简介的内容，这里是讲师的简介的内容， 这里是讲师的简介的内容 这里是讲师的简介的内容这
+            里是讲师的简介的内容这里是讲师的简介的内容，这里是讲师的简介的内容这里是讲师的简介的内容
+        </view>
+        <view wx:if="{{tabIndex == 1}}" class="detail">
+            这里是会议详情的内容，这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容，这里是会议详情的内容
+            这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容
+            这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容
+            这里是会议详情的内容这里是会议详情的内容。
+        </view>
+        <view wx:if="{{tabIndex == 2}}" class="comment"></view>
+        <view wx:if="{{tabIndex == 3}}" class="preview"></view>
+    </view>
 </view>

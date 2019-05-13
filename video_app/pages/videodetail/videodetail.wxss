@@ -1,3 +1,54 @@
 .video-detail-wrap {
-    padding: 0 40rpx 60rpx;
+    background-color: #f8f8f8;
+}
+.video-wrap {
+    width: 100%;
+    height: 400rpx;
+}
+.video-wrap .video-v {
+    width: 100%;
+    height: 400rpx;
+}
+.video-info {
+    margin-top: 60rpx;
+    background-color: #fff;
+}
+.video-info .info-tab {
+    display: flex;
+    height: 90rpx;
+}
+.video-info .info-tab .tab-item {
+    flex: 1;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #333;
+}
+.video-info .info-tab .tab-active {
+    border-bottom: 2rpx solid #A020F0;
+    color: #A020F0;
+}
+.video-info .introduce {
+    padding: 40rpx 30rpx;
+    font-size: 28rpx;
+    line-height: 50rpx;
+    color: #333;
+}
+.video-info .detail {
+    padding: 40rpx 30rpx;
+    font-size: 28rpx;
+    line-height: 50rpx;
+    color: #333;
+}
+.video-info .comment {
+    padding: 40rpx 30rpx;
+    font-size: 28rpx;
+    line-height: 50rpx;
+    color: #333;
+}
+.video-info .preview {
+    padding: 40rpx 30rpx;
+    font-size: 28rpx;
+    line-height: 50rpx;
+    color: #333;
 }

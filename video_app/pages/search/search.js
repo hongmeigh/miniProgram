@@ -25,11 +25,14 @@ Page({
     confirm(e) {
         console.log(e);
         const list = [...this.data.tagList];
-        if (list.length >= 10 && e.detail.value) {
+        if (list.length >= 10 && e.detail.value && list.indexOf(e.detail.value) < 0) {
             list.shift();
         }
-        if (e.detail.value) {
-            list.push(e.detail.value);
+        if (e.detail.value && list.indexOf(e.detail.value) < 0) {
+            list.unshift(e.detail.value);
+        }
+        if (e.detail.value && list.indexOf(e.detail.value) >= 0) {
+            list.unshift(list.splice(list.indexOf(e.detail.value), 1)[0]);
         }
         wx.setStorageSync('tagList', JSON.stringify(list))
         this.setData({
@@ -48,11 +51,14 @@ Page({
     },
     toList() {
         const list = [...this.data.tagList];
-        if (list.length >= 10 && this.data.searchValue) {
+        if (list.length >= 10 && this.data.searchValue && list.indexOf(this.data.searchValue) < 0) {
             list.shift();
         }
-        if (this.data.searchValue) {
-            list.push(this.data.searchValue);
+        if (this.data.searchValue && list.indexOf(this.data.searchValue) < 0) {
+            list.unshift(this.data.searchValue);
+        }
+        if (this.data.searchValue && list.indexOf(this.data.searchValue) >= 0) {
+            list.unshift(list.splice(list.indexOf(this.data.searchValue), 1)[0]);
         }
         wx.setStorageSync('tagList', JSON.stringify(list))
         this.setData({
