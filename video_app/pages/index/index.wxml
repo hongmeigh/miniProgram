@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container-wrap">
+    <view bindtap="toSearch" class="search-wrap">
+        <input class="search-input" disabled type="text" placeholder="搜索视频" />
+        <image class="search-icon" src="../../images/search.png"></image>
+    </view>
+    <view class="video-live">
+        <view wx:for="{{videoLiveList}}" class="live-item item-{{index === 0 ? 'l' : 'r'}}">
+            <image class="bg-img" src="{{item.bgUrl}}"></image>
+            <image class="live-icon" src="../../images/live.png"></image>
+        </view>
+    </view>
+    <view class="module-wrap">
+        <view bindtap="toVideoList" data-index="1" class="module-item">
+            <image class="bg-img" src="../../images/bg1.png"></image>
+            <view class="txt">大讲堂</view>
+        </view>
+        <view bindtap="toVideoList" data-index="2" class="module-item">
+            <image class="bg-img" src="../../images/bg2.png"></image>
+            <view class="txt">病例</view>
+        </view>
+        <view bindtap="toVideoList" data-index="3" class="module-item">
+            <image class="bg-img" src="../../images/bg3.png"></image>
+            <view class="txt">Emdit</view>
+        </view>
+        <view bindtap="toVideoList" data-index="4" class="module-item">
+            <image class="bg-img" src="../../images/bg4.png"></image>
+            <view class="txt">患者交流</view>
+        </view>
+    </view>
+    <view class="video-list-wrap">
+        <view class="video-title">
+            最新内容
+            <view bindtap="toVideoList" class="more">更多</view>
+        </view>
+        <view wx:for="{{videoList}}" class="list-item">
+            <image class="left-img" src="{{item.imgUrl}}"></image>
+            <view class="video-cont">
+                <view class="title">{{item.title}}</view>
+                <view class="description">{{item.description}}</view>
+            </view>
+        </view>
+    </view>
+</view>

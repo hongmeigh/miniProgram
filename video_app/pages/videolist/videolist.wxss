@@ -1,0 +1,41 @@
+.video-wrap {
+    padding: 0 30rpx;
+}
+.video-wrap .list-item {
+  margin-top: 30rpx;
+  clear: both;
+  overflow: hidden;
+}
+.video-wrap .list-item .left-img {
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
+  float: left;
+}
+.video-wrap .list-item .video-cont {
+  float: left;
+  width: 490rpx;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+}
+.video-wrap .list-item .title {
+  font-size: 34rpx;
+  margin-top: 10rpx;
+  color: #111;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.video-wrap .list-item .description {
+  margin-top: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.loading {
+    text-align: center;
+    font-size: 28rpx;
+    color: #333;
+    line-height: 3;
+}

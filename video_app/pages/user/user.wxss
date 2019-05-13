@@ -1,0 +1,33 @@
+/* pages/user/user.wxss */
+.info {
+    padding: 40rpx 20rpx;
+    overflow: hidden;
+}
+.info-left {
+    float: left
+}
+.info-left .user-name {
+    font-size: 36rpx;
+    color: #333;
+    line-height: 1.6;
+}
+.info-left .user-message {
+    font-size: 30rpx;
+    color: #666;
+}
+.info-right {
+    float: right;
+}
+.user-img {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 60rpx;
+}
+.list-item {
+    font-size: 32rpx;
+    color: #111;
+    padding: 20rpx 20rpx;
+}
+.list-group {
+    border-top: 20rpx solid #f8f8f8;
+}

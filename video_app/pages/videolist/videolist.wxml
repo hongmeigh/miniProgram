@@ -1,0 +1,11 @@
+<!--pages/videolist/videolist.wxml-->
+<view class="video-wrap">
+    <view wx:for="{{videoList}}" class="list-item">
+        <image class="left-img" src="{{item.imgUrl}}"></image>
+        <view class="video-cont">
+            <view class="title">{{item.title}}</view>
+            <view class="description">{{item.description}}</view>
+        </view>
+    </view>
+    <view class="loading">{{loadText}}</view>
+</view>

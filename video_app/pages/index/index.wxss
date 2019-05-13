@@ -1,0 +1,122 @@
+/**index.wxss**/
+.container-wrap {
+  background-color: #fff;
+  color: #333;
+  padding-bottom: 40rpx;
+}
+.search-wrap {
+  margin: 20rpx 40rpx;
+  position: relative;
+}
+.search-wrap .search-input {
+  width: 100%;
+  height: 60rpx;
+  border-radius: 30rpx;
+  background-color: #eee;
+  font-size: 26rpx;
+  color: #999;
+  padding-left: 100rpx;
+  box-sizing: border-box;
+}
+.search-wrap .search-icon {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 10rpx;
+  left: 30rpx;
+}
+.video-live {
+  margin: 40rpx;
+  display: flex;
+}
+.video-live .live-item {
+  flex: 1;
+  height: 200rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.video-live .live-item .bg-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.video-live .live-item .live-icon {
+  width: 90rpx;
+  height: 90rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -45rpx 0 0 -45rpx;
+  z-index: 2;
+}
+.video-live .item-l {
+  margin-right: 40rpx;
+}
+.video-live .item-r {
+  margin-left: 40rpx;
+}
+.module-wrap {
+  margin: 0 40rpx;
+  display: flex;
+  justify-content: center;
+}
+.module-wrap .module-item {
+  flex: 1;
+}
+.module-wrap .module-item .bg-img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.module-wrap .module-item .txt {
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 10rpx;
+  color: #333;
+}
+.video-list-wrap {
+  margin: 40rpx 40rpx 0;
+}
+.video-list-wrap .video-title {
+  font-size: 28rpx;
+  padding-left: 10rpx;
+  border-left: 6rpx solid #A020F0;
+}
+.video-list-wrap .video-title .more {
+  float: right;
+  color: #A020F0;
+}
+.video-list-wrap .list-item {
+  margin-top: 30rpx;
+  clear: both;
+  overflow: hidden;
+}
+.video-list-wrap .list-item .left-img {
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
+  float: left;
+}
+.video-list-wrap .list-item .video-cont {
+  float: left;
+  width: 470rpx;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+}
+.video-list-wrap .list-item .title {
+  font-size: 34rpx;
+  margin-top: 10rpx;
+  color: #111;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.video-list-wrap .list-item .description {
+  margin-top: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
