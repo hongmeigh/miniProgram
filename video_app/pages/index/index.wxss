@@ -56,7 +56,7 @@
   margin-left: 40rpx;
 }
 .module-wrap {
-  margin: 0 40rpx;
+  margin: 60rpx 40rpx;
   display: flex;
   justify-content: center;
 }
@@ -64,9 +64,9 @@
   flex: 1;
 }
 .module-wrap .module-item .bg-img {
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;
+  width: 66rpx;
+  height: 66rpx;
+  /* border-radius: 50%; */
   display: block;
   margin: 0 auto;
 }
@@ -89,7 +89,7 @@
   color: #A020F0;
 }
 .video-list-wrap .list-item {
-  margin-top: 30rpx;
+  padding: 20rpx 0;
   clear: both;
   overflow: hidden;
 }

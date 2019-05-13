@@ -61,7 +61,7 @@ Page({
         this.type = options.type;
         if (this.type == 1) {
             wx.setNavigationBarTitle({
-                title: '大讲堂'
+                title: '讲堂'
             })
         } else if (this.type == 2) {
             wx.setNavigationBarTitle({
@@ -73,13 +73,18 @@ Page({
             })
         } else if (this.type == 4) {
             wx.setNavigationBarTitle({
-                title: '患者交流'
+                title: '患教'
             })
         } else {
             wx.setNavigationBarTitle({
                 title: '视频列表'
             })
         }
+    },
+    toDetail(e) {
+      wx.navigateTo({
+        url: `/pages/videodetail/videodetail?id=${e.currentTarget.dataset.id}`
+      })
     },
 
     /**

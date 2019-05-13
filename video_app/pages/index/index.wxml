@@ -12,20 +12,20 @@
     </view>
     <view class="module-wrap">
         <view bindtap="toVideoList" data-index="1" class="module-item">
-            <image class="bg-img" src="../../images/bg1.png"></image>
-            <view class="txt">大讲堂</view>
+            <image class="bg-img" src="../../images/icon1.png"></image>
+            <view class="txt">讲堂</view>
         </view>
         <view bindtap="toVideoList" data-index="2" class="module-item">
-            <image class="bg-img" src="../../images/bg2.png"></image>
+            <image class="bg-img" src="../../images/icon2.png"></image>
             <view class="txt">病例</view>
         </view>
         <view bindtap="toVideoList" data-index="3" class="module-item">
-            <image class="bg-img" src="../../images/bg3.png"></image>
+            <image class="bg-img" src="../../images/icon3.png"></image>
             <view class="txt">Emdit</view>
         </view>
         <view bindtap="toVideoList" data-index="4" class="module-item">
-            <image class="bg-img" src="../../images/bg4.png"></image>
-            <view class="txt">患者交流</view>
+            <image class="bg-img" src="../../images/icon4.png"></image>
+            <view class="txt">患教</view>
         </view>
     </view>
     <view class="video-list-wrap">
@@ -33,7 +33,7 @@
             最新内容
             <view bindtap="toVideoList" class="more">更多</view>
         </view>
-        <view wx:for="{{videoList}}" class="list-item">
+        <view wx:for="{{videoList}}" bindtap="toDetail" data-id="{{item.id}}" class="list-item">
             <image class="left-img" src="{{item.imgUrl}}"></image>
             <view class="video-cont">
                 <view class="title">{{item.title}}</view>

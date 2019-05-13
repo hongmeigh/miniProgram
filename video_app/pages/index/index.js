@@ -37,6 +37,11 @@ Page({
       url: '/pages/search/search'
     })
   },
+  toDetail(e) {
+    wx.navigateTo({
+      url: `/pages/videodetail/videodetail?id=${e.currentTarget.dataset.id}`
+    })
+  },
   toVideoList(e) {
     console.log(e)
     wx.navigateTo({

@@ -1,2 +1,4 @@
 <!--pages/videodetail/videodetail.wxml-->
-<text>pages/videodetail/videodetail.wxml</text>
+<view class="video-detail-wrap">
+    这里是视频详情页面
+</view>
