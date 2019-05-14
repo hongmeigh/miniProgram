@@ -33,7 +33,7 @@
             最新内容
             <view bindtap="toVideoList" class="more">更多</view>
         </view>
-        <view wx:for="{{videoList}}" bindtap="toDetail" data-id="{{item.id}}" class="list-item">
+        <view wx:for="{{videoList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.id}}" class="list-item">
             <image class="left-img" src="{{item.imgUrl}}"></image>
             <view class="video-cont">
                 <view class="title">{{item.title}}</view>

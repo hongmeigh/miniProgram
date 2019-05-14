@@ -14,9 +14,9 @@ Page({
     onLoad: function(options) {
 
     },
-    toRecharge() {
+    toHistory() {
         wx.navigateTo({
-            url: '/pages/recharge/recharge'
+            url: '/pages/history/history'
         })
     },
 

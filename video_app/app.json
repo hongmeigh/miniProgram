@@ -4,7 +4,8 @@
         "pages/user/user",
         "pages/search/search",
         "pages/videolist/videolist",
-        "pages/videodetail/videodetail"
+        "pages/videodetail/videodetail",
+        "pages/history/history"
     ],
     "window": {
         "backgroundTextStyle": "light",

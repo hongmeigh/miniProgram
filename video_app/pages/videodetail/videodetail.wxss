@@ -28,27 +28,77 @@
     border-bottom: 2rpx solid #A020F0;
     color: #A020F0;
 }
-.video-info .introduce {
+.video-info .introduce, .video-info .detail, .video-info .comment, .video-info .preview {
     padding: 40rpx 30rpx;
     font-size: 28rpx;
     line-height: 50rpx;
     color: #333;
-}
-.video-info .detail {
-    padding: 40rpx 30rpx;
-    font-size: 28rpx;
-    line-height: 50rpx;
-    color: #333;
+    height: 600rpx;
+    overflow: scroll;
 }
 .video-info .comment {
-    padding: 40rpx 30rpx;
+    line-height: normal;
+}
+.comment-list-wrap .comment-item {
+  padding: 30rpx 0;
+  clear: both;
+  overflow: hidden;
+  border-bottom: 1rpx solid #999;
+}
+.comment-list-wrap .comment-item .left-img {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  float: left;
+}
+.comment-list-wrap .comment-item .comment-cont {
+  float: left;
+  width: 490rpx;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+}
+.comment-list-wrap .comment-item .name {
+  font-size: 32rpx;
+  color: #111;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.comment-list-wrap .comment-item .cont {
+    font-size: 26rpx;
+  margin-top: 10rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.comment-list-wrap .comment-item .date {
+    font-size: 26rpx;
+    margin-top: 10rpx;
+}
+.comment-list-wrap .load-more {
+    text-align: center;
+    line-height: 3;
     font-size: 28rpx;
-    line-height: 50rpx;
     color: #333;
 }
-.video-info .preview {
-    padding: 40rpx 30rpx;
-    font-size: 28rpx;
-    line-height: 50rpx;
+.publish-comment {
+    padding: 20rpx 0 30rpx;
+    overflow: hidden;
+}
+.publish-comment .publish-input {
+    width: 600rpx;
+    height: 70rpx;
+    border-radius: 35rpx;
+    padding-left: 40rpx;
+    background: #eee;
     color: #333;
+    float: left;
+    box-sizing: border-box;
+}
+.publish-comment .publish {
+    font-size: 28rpx;
+    color: #A020F0;
+    float: right;
+    line-height: 70rpx;
 }

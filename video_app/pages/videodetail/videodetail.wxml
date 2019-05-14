@@ -11,16 +11,28 @@
             <view bindtap="changeTab" data-tab="3" class="tab-item tab-{{tabIndex == 3 ? 'active' : 'no'}}">附件预览</view>
         </view>
         <view wx:if="{{tabIndex == 0}}" class="introduce">
-            这里是讲师的简介的内容，这里是讲师的简介的内容， 这里是讲师的简介的内容 这里是讲师的简介的内容这
-            里是讲师的简介的内容这里是讲师的简介的内容，这里是讲师的简介的内容这里是讲师的简介的内容
+            {{introduce}}
         </view>
         <view wx:if="{{tabIndex == 1}}" class="detail">
-            这里是会议详情的内容，这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容，这里是会议详情的内容
-            这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容
-            这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容
-            这里是会议详情的内容这里是会议详情的内容。
+            {{detail}}
         </view>
-        <view wx:if="{{tabIndex == 2}}" class="comment"></view>
+        <view wx:if="{{tabIndex == 2}}" class="comment">
+            <view class="publish-comment">
+                <input class="publish-input" type="text" placeholder="发布评论" value="{{commentValue}}" bindinput="bindKeyInput"/>
+                <view bindtap="publish" class="publish">发布</view>
+            </view>
+            <view class="comment-list-wrap">
+                <view wx:for="{{commentList}}" wx:key="{{index}}" class="comment-item">
+                    <image class="left-img" src="{{item.userImg}}"></image>
+                    <view class="comment-cont">
+                        <view class="name">{{item.userName}}</view>
+                        <view class="cont">{{item.content}}</view>
+                        <view class="date">{{item.date}}</view>
+                    </view>
+                </view>
+                <view bindtap="loadMore" class="load-more">加载更多评论</view>
+            </view>
+        </view>
         <view wx:if="{{tabIndex == 3}}" class="preview"></view>
     </view>
 </view>

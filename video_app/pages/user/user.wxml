@@ -1,24 +1,15 @@
 <!--pages/user/user.wxml-->
 <view class='user-info'>
     <view class='info'>
-        <view class='info-left'>
-            <view class='user-name'>小明</view>
-            <text class='user-message'>hello world</text>
-        </view>
-        <view class='info-right'>
-            <image class='user-img' src='../../images/userinfo.png'></image>
-        </view>
+        <image class='user-img' src='../../images/userinfo.png'></image>
+        <view class='user-name'>小明</view>
     </view> 
-    <view bindtap="toRecharge" class='list-item'>我要充值</view>
-    <view class='list-item'>通知设置</view>
-    <view class='list-item'>个人资料</view>
-    <view class='list-item'>开通会员</view>
-    <view class='list-group'>
-        <view class='list-item'>消费记录</view>
-        <view class='list-item'>清除缓存</view>
+    <view bindtap="toHistory" class='list-item'>
+        观看历史
+        <image class="right-icon" src="../../images/right.png"></image>
     </view>
-    <view class='list-group'>
-        <view class='list-item'>推荐朋友</view>
-        <view class='list-item'>关于我们</view>
+    <view class='list-item'>
+        常见问题
+        <image class="right-icon" src="../../images/right.png"></image>
     </view>
 </view>

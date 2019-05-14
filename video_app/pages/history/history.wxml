@@ -1,0 +1,19 @@
+<!--pages/history/history.wxml-->
+<view class="history-cont">
+    <view class="history-list">
+        <view wx:for="{{historyList}}" wx:key="{{index}}" class="history-item">
+            <view class="video">
+                <video wx:if="{{item.show}}" class="video-v" src="{{item.videoURL}}" controls></video>
+                <view bindtap="toShowVideo" data-index="{{index}}" wx:if="{{!item.show}}" class="start-image">
+                    <image class="bg-img" src="{{item.showImg}}"></image>
+                    <image class="play-icon" src="../../images/play.png"></image>
+                </view>
+            </view>
+            <view class="video-info">
+                <view class="tit">{{item.title}}</view>
+                <view class="date">{{item.publishTime}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="loading">{{loadText}}</view>
+</view>
