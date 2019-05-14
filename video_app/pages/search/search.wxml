@@ -4,7 +4,10 @@
     <image class="search-icon" src="../../images/search.png"></image>
 </view>
 <view wx:if="{{tagList.length}}" class="search-history">
-    <view class="tit">搜索历史</view>
+    <view class="tit">
+        搜索历史
+        <image bindtap="clear" class="clear" src="../../images/clear.png"></image>
+    </view>
     <view class="tag" wx:for="{{tagList}}" bindtap="resetValue" data-search="{{item}}">{{item}}</view>
 </view>
 <view wx:if="{{hotList.length}}" class="hot-search">

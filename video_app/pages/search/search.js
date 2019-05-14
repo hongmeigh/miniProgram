@@ -49,6 +49,23 @@ Page({
             focus: true
         })
     },
+    clear() {
+        const self = this;
+        wx.showModal({
+            title: '提示',
+            content: '确定要清空历史搜索吗',
+            success(res) {
+              if (res.confirm) {
+                wx.setStorageSync('tagList', JSON.stringify([]))
+                self.setData({
+                    tagList: []
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+    },
     toList() {
         const list = [...this.data.tagList];
         if (list.length >= 10 && this.data.searchValue && list.indexOf(this.data.searchValue) < 0) {

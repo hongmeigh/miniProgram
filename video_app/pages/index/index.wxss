@@ -50,15 +50,20 @@
   z-index: 2;
 }
 .video-live .item-l {
-  margin-right: 40rpx;
+  margin-right: 30rpx;
 }
 .video-live .item-r {
-  margin-left: 40rpx;
+  margin-left: 30rpx;
 }
 .module-wrap {
-  margin: 60rpx 40rpx;
+  margin: 30rpx 40rpx;
+  padding: 30rpx 0;
   display: flex;
   justify-content: center;
+  /* border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; */
+  border-radius: 8rpx;
+  box-shadow: 0 0 16rpx #ddd;
 }
 .module-wrap .module-item {
   flex: 1;

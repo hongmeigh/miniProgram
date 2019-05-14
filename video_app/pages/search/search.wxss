@@ -22,6 +22,12 @@
 .search-history {
     margin: 100rpx 40rpx;
 }
+.search-history .clear {
+  float: right;
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 5rpx;
+}
 .search-history .tit, .hot-search .tit {
     margin-bottom: 20rpx;
     font-size: 32rpx;
