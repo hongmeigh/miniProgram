@@ -25,28 +25,47 @@ Page({
     confirm(e) {
         console.log(e);
         const list = [...this.data.tagList];
-        if (list.length >= 10 && e.detail.value && list.indexOf(e.detail.value) < 0) {
+        const value = e.detail.value;
+        if (list.length >= 10 && value && list.indexOf(value) < 0) {
             list.shift();
         }
-        if (e.detail.value && list.indexOf(e.detail.value) < 0) {
-            list.unshift(e.detail.value);
+        if (value && list.indexOf(value) < 0) {
+            list.unshift(value);
         }
-        if (e.detail.value && list.indexOf(e.detail.value) >= 0) {
-            list.unshift(list.splice(list.indexOf(e.detail.value), 1)[0]);
+        if (value && list.indexOf(value) >= 0) {
+            list.unshift(list.splice(list.indexOf(value), 1)[0]);
         }
         wx.setStorageSync('tagList', JSON.stringify(list))
         this.setData({
             tagList: list
         })
         wx.navigateTo({
-            url: `/pages/videolist/videolist?search=${e.detail.value}`
+            url: `/pages/videolist/videolist?search=${value}`
         })
     },
     resetValue(e) {
         console.log(e.target.dataset.search);
+        // this.setData({
+        //     searchValue: e.target.dataset.search,
+        //     focus: true
+        // })
+        const list = [...this.data.tagList];
+        const value = e.target.dataset.search;
+        if (list.length >= 10 && value && list.indexOf(value) < 0) {
+            list.shift();
+        }
+        if (value && list.indexOf(value) < 0) {
+            list.unshift(value);
+        }
+        if (value && list.indexOf(value) >= 0) {
+            list.unshift(list.splice(list.indexOf(value), 1)[0]);
+        }
+        wx.setStorageSync('tagList', JSON.stringify(list))
         this.setData({
-            searchValue: e.target.dataset.search,
-            focus: true
+            tagList: list
+        })
+        wx.navigateTo({
+            url: `/pages/videolist/videolist?search=${value}`
         })
     },
     clear() {
@@ -66,25 +85,25 @@ Page({
             }
           })
     },
-    toList() {
-        const list = [...this.data.tagList];
-        if (list.length >= 10 && this.data.searchValue && list.indexOf(this.data.searchValue) < 0) {
-            list.shift();
-        }
-        if (this.data.searchValue && list.indexOf(this.data.searchValue) < 0) {
-            list.unshift(this.data.searchValue);
-        }
-        if (this.data.searchValue && list.indexOf(this.data.searchValue) >= 0) {
-            list.unshift(list.splice(list.indexOf(this.data.searchValue), 1)[0]);
-        }
-        wx.setStorageSync('tagList', JSON.stringify(list))
-        this.setData({
-            tagList: list
-        })
-        wx.navigateTo({
-            url: `/pages/videolist/videolist?search=${this.data.searchValue}`
-        })
-    },
+    // toList() {
+    //     const list = [...this.data.tagList];
+    //     if (list.length >= 10 && this.data.searchValue && list.indexOf(this.data.searchValue) < 0) {
+    //         list.shift();
+    //     }
+    //     if (this.data.searchValue && list.indexOf(this.data.searchValue) < 0) {
+    //         list.unshift(this.data.searchValue);
+    //     }
+    //     if (this.data.searchValue && list.indexOf(this.data.searchValue) >= 0) {
+    //         list.unshift(list.splice(list.indexOf(this.data.searchValue), 1)[0]);
+    //     }
+    //     wx.setStorageSync('tagList', JSON.stringify(list))
+    //     this.setData({
+    //         tagList: list
+    //     })
+    //     wx.navigateTo({
+    //         url: `/pages/videolist/videolist?search=${this.data.searchValue}`
+    //     })
+    // },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

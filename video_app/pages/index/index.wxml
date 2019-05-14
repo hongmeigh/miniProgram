@@ -5,7 +5,7 @@
         <image class="search-icon" src="../../images/search.png"></image>
     </view>
     <view class="video-live">
-        <view wx:for="{{videoLiveList}}" class="live-item item-{{index === 0 ? 'l' : 'r'}}">
+        <view wx:for="{{videoLiveList}}" wx:key="{{index}}" class="live-item item-{{index === 0 ? 'l' : 'r'}}">
             <image class="bg-img" src="{{item.bgUrl}}"></image>
             <image class="live-icon" src="../../images/live.png"></image>
         </view>

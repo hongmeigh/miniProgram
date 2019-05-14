@@ -8,9 +8,9 @@
         搜索历史
         <image bindtap="clear" class="clear" src="../../images/clear.png"></image>
     </view>
-    <view class="tag" wx:for="{{tagList}}" bindtap="resetValue" data-search="{{item}}">{{item}}</view>
+    <view class="tag" wx:for="{{tagList}}" wx:key="{{index}}" bindtap="resetValue" data-search="{{item}}">{{item}}</view>
 </view>
 <view wx:if="{{hotList.length}}" class="hot-search">
-    <view bindtap="toList" class="tit">热门搜索</view>
-    <view class="tag" wx:for="{{hotList}}" bindtap="resetValue" data-search="{{item}}">{{item}}</view>
+    <view class="tit">热门搜索</view>
+    <view class="tag" wx:for="{{hotList}}" wx:key="{{index}}" bindtap="resetValue" data-search="{{item}}">{{item}}</view>
 </view>
