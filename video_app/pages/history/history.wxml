@@ -3,14 +3,14 @@
     <view class="history-list">
         <view wx:for="{{historyList}}" wx:key="{{index}}" class="history-item">
             <view class="video">
-                <video wx:if="{{item.show}}" class="video-v" src="{{item.videoURL}}" controls></video>
+                <video bindplay="toPlay" id="video-{{index}}-{{item.videoId}}" data-id="video-{{index}}-{{item.videoId}}" wx:if="{{item.show}}" class="video-v" src="{{item.videoURL}}" controls></video>
                 <view bindtap="toShowVideo" data-index="{{index}}" wx:if="{{!item.show}}" class="start-image">
-                    <image class="bg-img" src="{{item.showImg}}"></image>
+                    <image class="bg-img" src="{{item.videoImg}}"></image>
                     <image class="play-icon" src="../../images/play.png"></image>
                 </view>
             </view>
             <view class="video-info">
-                <view class="tit">{{item.title}}</view>
+                <view class="tit">{{item.videoTitle}}</view>
                 <view class="date">{{item.publishTime}}</view>
             </view>
         </view>

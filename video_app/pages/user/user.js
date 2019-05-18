@@ -1,18 +1,45 @@
 // pages/user/user.js
+import {ajaxApi} from '../../utils/api.js';
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        userInfo: {},
+        popShow: false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        this.queryUserInfo();
+    },
+    queryUserInfo() {
+        ajaxApi.getUserInfo().then((res = {}) => {
+            console.log(res);
+            res.data = res.data || {};
+            this.setData({
+                userInfo: res.data
+            })
+        })
+    },
+    getuserinfo(e) {
+        console.log(e);
+        this.setData({
+            popShow: false
+        })
+    },
+    hidePop() {
+        this.setData({
+            popShow: false
+        })
+    },
+    toLogin() {
+        this.setData({
+            popShow: true
+        })
     },
     toHistory() {
         wx.navigateTo({

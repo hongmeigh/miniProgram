@@ -36,7 +36,6 @@ const request = (url, method, _data = {}) => {
                 if (statusCode == 401 || statusCode == 403 || data.code == 401 || data.code == 403 || data.code == 605) {
                     wx.setStorageSync('token', '');
                     wx.setStorageSync('userCode', '');
-                    wx.reLaunch({ url: '/pages/void/void' });
                 } else {
                     resolve(data);
                 }

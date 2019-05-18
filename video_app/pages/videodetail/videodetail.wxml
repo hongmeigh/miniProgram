@@ -1,7 +1,7 @@
 <!--pages/videodetail/videodetail.wxml-->
 <view class="video-detail-wrap">
     <view class="video-wrap">
-        <video class="video-v" src="{{video2}}" controls></video>
+        <video class="video-v" src="{{videoUrl}}" controls></video>
     </view>
     <view class="video-info">
         <view class="info-tab">
@@ -11,10 +11,10 @@
             <view bindtap="changeTab" data-tab="3" class="tab-item tab-{{tabIndex == 3 ? 'active' : 'no'}}">附件预览</view>
         </view>
         <view wx:if="{{tabIndex == 0}}" class="introduce">
-            {{introduce}}
+            {{teacherInfo}}
         </view>
         <view wx:if="{{tabIndex == 1}}" class="detail">
-            {{detail}}
+            {{videoDetail}}
         </view>
         <view wx:if="{{tabIndex == 2}}" class="comment">
             <view class="publish-comment">
@@ -23,16 +23,25 @@
             </view>
             <view class="comment-list-wrap">
                 <view wx:for="{{commentList}}" wx:key="{{index}}" class="comment-item">
-                    <image class="left-img" src="{{item.userImg}}"></image>
+                    <image class="left-img" src="{{item.userImg || '../../images/userinfo.png'}}"></image>
                     <view class="comment-cont">
                         <view class="name">{{item.userName}}</view>
-                        <view class="cont">{{item.content}}</view>
-                        <view class="date">{{item.date}}</view>
+                        <view class="cont">{{item.commentContent}}</view>
+                        <view class="date">{{item.publishTime}}</view>
                     </view>
                 </view>
-                <view bindtap="loadMore" class="load-more">加载更多评论</view>
+                <view bindtap="loadMore" class="load-more">{{loadText}}</view>
             </view>
         </view>
         <view wx:if="{{tabIndex == 3}}" class="preview"></view>
+    </view>
+    <view wx:if="{{popShow}}" class="popup-wrap">
+        <view bindtap="hidePop" class="black-bg"></view>
+        <view class="popup">
+            <view class="cont">
+                请先授权登录
+            </view>
+            <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="getuserinfo">去授权</button>
+        </view>
     </view>
 </view>

@@ -1,44 +1,55 @@
 // pages/videolist/videolist.js
+import {ajaxApi} from '../../utils/api.js';
 const list = [{
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题这里是一个大标题,这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题这里是一个大标题,这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }, {
-    imgUrl: '../../images/day1.png',
-    title: '这里是一个大标题',
-    description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
+    videoId: 1,
+    videoImg: '../../images/day1.png',
+    videoTitle: '这里是一个大标题',
+    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
   }];
 Page({
 
@@ -49,7 +60,7 @@ Page({
         loadText: '上拉加载更多',
         totalPage: 3,
         page: 1,
-        videoList: [...list] 
+        videoList: [] 
     },
 
     /**
@@ -80,6 +91,35 @@ Page({
                 title: '视频列表'
             })
         }
+        this.searchVideo();
+    },
+    searchVideo() {
+      this.setData({
+        loadText: '加载中...'
+      })
+      ajaxApi.getVideoList({
+        type: this.type,
+        videoTitle: this.searchValue || '',
+        page: this.data.page
+      }).then((res = {}) => {
+        console.log(res);
+        res.data = res.data || {};
+        res.data.videoList = res.data.videoList || [];
+        let loadText = '';
+        if (this.data.page == 1 && res.data.videoList.length == 0) {
+          loadText = '暂无数据'
+        } else if (this.data.page >= 1 && this.data.page < res.data.totalPage) {
+          loadText = '上拉加载更多'
+        } else if (this.data.page >= 1 && this.data.page >= res.data.totalPage) {
+          loadText = '加载完毕'
+        }
+        this.setData({
+          totalPage: res.data.totalPage,
+          videoList: this.data.videoList.concat(res.data.videoList),
+          page: this.data.page + 1,
+          loadText: loadText
+        })
+      })
     },
     toDetail(e) {
       wx.navigateTo({
@@ -126,20 +166,24 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        if (this.data.page >= this.data.totalPage) {
-            return;
+        if (this.data.page > this.data.totalPage) {
+          return;
         }
-        this.setData({
-            loadText: '加载中...'
-        })
-        setTimeout(() => {
-            const page = this.data.page;
-            this.setData({
-                videoList: this.data.videoList.concat(list),
-                page: page + 1,
-                loadText: page + 1 >= this.data.totalPage ? '加载完毕' : '上拉加载更多'
-            })
-        }, 1000)
+        this.searchVideo();
+        // if (this.data.page >= this.data.totalPage) {
+        //     return;
+        // }
+        // this.setData({
+        //     loadText: '加载中...'
+        // })
+        // setTimeout(() => {
+        //     const page = this.data.page;
+        //     this.setData({
+        //         videoList: this.data.videoList.concat(list),
+        //         page: page + 1,
+        //         loadText: page + 1 >= this.data.totalPage ? '加载完毕' : '上拉加载更多'
+        //     })
+        // }, 1000)
     },
 
     /**

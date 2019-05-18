@@ -1,33 +1,39 @@
+import {ajaxApi} from '../../utils/api.js';
 const list = [
     {
+        videoId: 1,
         videoURL: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
-        title: '这是一个标题这是一个标题这是一个标题',
+        videoTitle: '这是一个标题这是一个标题这是一个标题',
         publishTime: '2019-05-14 12:02',
-        showImg: '../../images/video.jpg',
+        videoImg: '../../images/video.jpg',
         show: false
     }, {
+        videoId: 2,
         videoURL: 'https://ent-21.oss-cn-shanghai.aliyuncs.com/meeting/5ca1ddf6-ae16-41fc-972f-9d979632463a.mp4',
-        title: '这是一个标题这是一个标题这是一个标题,这是一个标题这是一个标题这是一个标题',
+        videoTitle: '这是一个标题这是一个标题这是一个标题,这是一个标题这是一个标题这是一个标题',
         publishTime: '2019-05-14 12:02',
-        showImg: '../../images/video.jpg',
+        videoImg: '../../images/video.jpg',
         show: false
     }, {
+        videoId: 3,
         videoURL: 'https://ent-21.oss-cn-shanghai.aliyuncs.com/meeting/5ca1ddf6-ae16-41fc-972f-9d979632463a.mp4',
-        title: '这是一个标题这是一个标题这是一个标题',
+        videoTitle: '这是一个标题这是一个标题这是一个标题',
         publishTime: '2019-05-14 12:02',
-        showImg: '../../images/video.jpg',
+        videoImg: '../../images/video.jpg',
         show: false
     }, {
+        videoId: 4,
         videoURL: 'https://ent-21.oss-cn-shanghai.aliyuncs.com/meeting/5ca1ddf6-ae16-41fc-972f-9d979632463a.mp4',
-        title: '这是一个标题这是一个标题这是一个标题',
+        videoTitle: '这是一个标题这是一个标题这是一个标题',
         publishTime: '2019-05-14 12:02',
-        showImg: '../../images/video.jpg',
+        videoImg: '../../images/video.jpg',
         show: false
     }, {
+        videoId: 5,
         videoURL: 'https://ent-21.oss-cn-shanghai.aliyuncs.com/meeting/5ca1ddf6-ae16-41fc-972f-9d979632463a.mp4',
-        title: '这是一个标题这是一个标题这是一个标题',
+        videoTitle: '这是一个标题这是一个标题这是一个标题',
         publishTime: '2019-05-14 12:02',
-        showImg: '../../images/video.jpg',
+        videoImg: '../../images/video.jpg',
         show: false
     }
 ]
@@ -39,7 +45,9 @@ Page({
     data: {
         page: 1,
         totalPage: 3,
-        historyList: [...list]
+        historyList: [...list],
+        prevPlay: null,
+        loadText: '上拉加载更多'
     },
 
     /**
@@ -58,6 +66,43 @@ Page({
             console.log(this.data.historyList)
         })
     },
+    toPlay(e) {
+        console.log(e);
+        const id = e.currentTarget.dataset.id;
+        if (this.prevId != id) {
+            this.prevPlay && this.prevPlay.pause();
+            this.prevPlay = wx.createVideoContext(id);
+            this.prevId = id;
+            this.prevPlay.pause();
+            this.prevPlay.play();
+        }
+    },
+    searchVideo() {
+        this.setData({
+          loadText: '加载中...'
+        })
+        ajaxApi.getHisVideoList({
+          page: this.data.page
+        }).then((res = {}) => {
+          console.log(res);
+          res.data = res.data || {};
+          res.data.list = res.data.list || [];
+          let loadText = '';
+          if (this.data.page == 1 && res.data.videoList.length == 0) {
+            loadText = '暂无数据'
+          } else if (this.data.page >= 1 && this.data.page < res.data.totalPage) {
+            loadText = '上拉加载更多'
+          } else if (this.data.page >= 1 && this.data.page >= res.data.totalPage) {
+            loadText = '加载完毕'
+          }
+          this.setData({
+            totalPage: res.data.totalPage,
+            historyList: this.data.historyList.concat(res.data.list),
+            page: this.data.page + 1,
+            loadText: loadText
+          })
+        })
+      },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

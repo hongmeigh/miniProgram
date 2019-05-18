@@ -2,7 +2,8 @@
 <view class='user-info'>
     <view class='info'>
         <image class='user-img' src='../../images/userinfo.png'></image>
-        <view class='user-name'>小明</view>
+        <view wx:if="{{userInfo.username}}" class='user-name'>小明</view>
+        <view bindtap="toLogin" wx:if="{{!userInfo.username}}" class='user-name'>登录</view>
     </view> 
     <view bindtap="toHistory" class='list-item'>
         观看历史
@@ -11,5 +12,14 @@
     <view class='list-item'>
         常见问题
         <image class="right-icon" src="../../images/right.png"></image>
+    </view>
+    <view wx:if="{{popShow}}" class="popup-wrap">
+        <view bindtap="hidePop" class="black-bg"></view>
+        <view class="popup">
+            <view class="cont">
+                请先授权登录
+            </view>
+            <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="getuserinfo">去授权</button>
+        </view>
     </view>
 </view>
