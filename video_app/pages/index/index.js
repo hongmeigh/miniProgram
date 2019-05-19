@@ -10,23 +10,23 @@ Page({
       bgUrl: '../../images/day2.png'
     }],
     videoList: [{
-      imgUrl: '../../images/day1.png',
+      imgUrl: 'https://img1.dxycdn.com/2019/0118/457/3323887035940868926-10.png',
       title: '这里是一个大标题',
       description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
     }, {
-      imgUrl: '../../images/day1.png',
+      imgUrl: 'https://img1.dxycdn.com/2019/0416/334/3340209691929395091-73.png',
       title: '这里是一个大标题这里是一个大标题,这里是一个大标题',
       description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
     }, {
-      imgUrl: '../../images/day1.png',
+      imgUrl: 'https://img1.dxycdn.com/2019/0416/751/3340212324744739821-73.png',
       title: '这里是一个大标题',
       description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
     }, {
-      imgUrl: '../../images/day1.png',
+      imgUrl: 'https://img1.dxycdn.com/2019/0509/565/3344466895725820036-73.png',
       title: '这里是一个大标题',
       description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
     }, {
-      imgUrl: '../../images/day1.png',
+      imgUrl: 'https://res.dxycdn.com/cms/upload/asset/2017/05/22/A1495089762.png',
       title: '这里是一个大标题',
       description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
     }]
