@@ -141,3 +141,6 @@
 .popup-wrap .popup button::after {
     border: none;
 }
+.rich_img {
+    max-width: 100%;
+}

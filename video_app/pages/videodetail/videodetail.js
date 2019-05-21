@@ -58,15 +58,15 @@ Page({
         this.queryUserInfo();
     },
     getVideoDetail() {
-        ajaxApi.getVideoList({
+        ajaxApi.getVideoDetail({
             videoId: this.videoId
         }).then((res = {}) => {
             console.log(res);
             res.data = res.data || {};
             this.setData({
                 videoUrl: res.data.videoUrl,
-                teacherInfo: res.data.teacherInfo,
-                videoDetail: res.data.videoDetail,
+                teacherInfo: res.data.teacherContent.replace(/<img /g, '<img class="rich_img" '),
+                videoDetail: res.data.videoContent.replace(/<img /g, '<img class="rich_img" '),
                 annex: res.data.annex
             })
         })

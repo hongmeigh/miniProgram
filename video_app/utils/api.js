@@ -15,6 +15,10 @@ export const ajaxApi = {
     getVideoList(data) {
         return get(`${basePath}/api/video/ls`, data)
     },
+    // 获取视频详情
+    getVideoDetail(data) {
+        return get(`${basePath}/api/video/detail`, data)
+    },
     // 获取视频历史记录列表
     getHisVideoList(data) {
         return get(`${basePath}/api/user/video_his`, data);

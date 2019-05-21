@@ -11,10 +11,10 @@
             <view bindtap="changeTab" data-tab="3" class="tab-item tab-{{tabIndex == 3 ? 'active' : 'no'}}">附件预览</view>
         </view>
         <view wx:if="{{tabIndex == 0}}" class="introduce">
-            {{teacherInfo}}
+            <rich-text nodes="{{teacherInfo}}" bindtap="tap"></rich-text>
         </view>
         <view wx:if="{{tabIndex == 1}}" class="detail">
-            {{videoDetail}}
+            <rich-text nodes="{{videoDetail}}" bindtap="tap"></rich-text>
         </view>
         <view wx:if="{{tabIndex == 2}}" class="comment">
             <view class="publish-comment">
