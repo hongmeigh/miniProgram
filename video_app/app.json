@@ -5,7 +5,8 @@
         "pages/search/search",
         "pages/videolist/videolist",
         "pages/videodetail/videodetail",
-        "pages/history/history"
+        "pages/history/history",
+        "pages/userinfo/userinfo"
     ],
     "window": {
         "backgroundTextStyle": "light",

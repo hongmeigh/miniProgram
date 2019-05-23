@@ -2,7 +2,11 @@
 import { ajaxApi } from './utils/api.js'
 App({
     onLaunch: function () {
-        this.login();
+        this.login().then((data) => {
+            console.log(data)
+        }).catch((error) => {
+            console.log(error)
+        });
     },
     onShow() {
     },
@@ -17,12 +21,12 @@ App({
                     },
                     fail() {
                         // session_key 已经失效，需要重新执行登录流程
-                        this.getToken();
+                         return this.wxlogin();
                     }
                 })
             } else {
-                reject({ message: 'token is null' });
-                this.getToken();
+                //reject({ message: 'token is null' });
+                return this.wxlogin();
             }
         });
     },
@@ -31,8 +35,21 @@ App({
             wx.login({
                 success(res) {
                     if (res.code) {
-                        wx.setStorageSync('userCode', res.code)
-                        resolve(res)
+                        wx.setStorageSync('userCode', res.code);
+                        ajaxApi.codeToToken({
+                            code: res.code
+                        }).then((response = {}) => {
+                            //返回token
+                            if (response.data.token) {
+                                wx.setStorageSync('token', res.data.token);
+                                resolve(res.data)
+                            } else {
+                                console.log(res.errMsg);
+                                reject(res.errMsg)
+                            }
+                        }).catch((error) => {
+                            reject(error)
+                        })
                     } else {
                         reject(res)
                         console.log('登录失败！' + res.errMsg)
@@ -42,25 +59,6 @@ App({
                     reject(err)
                 }
             })
-        })
-    },
-    getToken() {
-        this.wxlogin().then((data) => {
-            ajaxApi.codeToToken({
-                code: data.code
-            }).then((res = {}) => {
-                //返回token
-                if (res.data.token) {
-                    wx.setStorageSync('token', res.data.token);
-                    resolve(res.data)
-                } else {
-                    console.log(res.errMsg)
-                }
-            }).catch((error) => {
-                console.log(error)
-            })
-        }).catch((error) => {
-            reject({ errMsg: JSON.stringify(error) })
         })
     },
     globalData: {

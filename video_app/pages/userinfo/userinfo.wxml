@@ -1,0 +1,21 @@
+<!--miniprogram/pages/person/person.wxml-->
+<view class='personal-info'>
+    <view bindtap='chooseImg' class='info-item user-img'>
+        <text>头像</text>
+        <image src='{{avatarUrl || userImg}}'></image>
+    </view>
+    <view class='info-item user-name'>
+        <input placeholder-class="color-333" bindinput="bindNicknameInput" type="text" placeholder="姓名" value="{{nickname}}"/>
+    </view>
+    <view class='info-item user-sex'>
+        <picker class='picker-sex' bindchange="bindSexChange" value="{{index}}" range="{{sexList}}">
+            <view class="picker">
+                {{sex || '性别'}}
+            </view>
+        </picker>
+    </view>
+    <view class='info-item user-phone'>
+        <input placeholder-class="color-333" bindinput="bindMobileInput" type="number" placeholder="手机号码" value="{{mobile}}"/>
+    </view>
+    <view bindtap='save' class='save-btn'>保存</view>
+</view>

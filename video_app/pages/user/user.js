@@ -46,6 +46,11 @@ Page({
             url: '/pages/history/history'
         })
     },
+    toUserInfo() {
+        wx.navigateTo({
+            url: '/pages/userinfo/userinfo'
+        })
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

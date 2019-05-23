@@ -4,7 +4,11 @@
         <image class='user-img' src='../../images/userinfo.png'></image>
         <view wx:if="{{userInfo.username}}" class='user-name'>小明</view>
         <view bindtap="toLogin" wx:if="{{!userInfo.username}}" class='user-name'>登录</view>
-    </view> 
+    </view>
+    <view bindtap="toUserInfo" class='list-item'>
+        个人资料
+        <image class="right-icon" src="../../images/right.png"></image>
+    </view>
     <view bindtap="toHistory" class='list-item'>
         观看历史
         <image class="right-icon" src="../../images/right.png"></image>
