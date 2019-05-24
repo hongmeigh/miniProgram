@@ -2,36 +2,37 @@
     padding: 0 30rpx;
 }
 .video-wrap .list-item {
-  margin-top: 30rpx;
+  margin-top: 40rpx;
   clear: both;
   overflow: hidden;
 }
 .video-wrap .list-item .left-img {
-  width: 160rpx;
-  height: 160rpx;
+  width: 200rpx;
+  height: 150rpx;
   display: block;
   float: left;
 }
 .video-wrap .list-item .video-cont {
   float: left;
-  width: 490rpx;
+  width: 450rpx;
   margin-left: 30rpx;
   font-size: 28rpx;
 }
 .video-wrap .list-item .title {
   font-size: 34rpx;
-  margin-top: 10rpx;
+  margin-top: 6rpx;
   color: #111;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .video-wrap .list-item .description {
-  margin-top: 20rpx;
+  margin-top: 16rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  font-size: 28rpx;
 }
 .loading {
     text-align: center;
