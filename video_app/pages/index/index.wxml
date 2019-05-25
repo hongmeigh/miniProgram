@@ -21,7 +21,7 @@
         </view>
         <view bindtap="toVideoList" data-index="3" class="module-item">
             <image class="bg-img" src="../../images/icon3.png"></image>
-            <view class="txt">Emdit</view>
+            <view class="txt">EMDT</view>
         </view>
         <view bindtap="toVideoList" data-index="4" class="module-item">
             <image class="bg-img" src="../../images/icon4.png"></image>

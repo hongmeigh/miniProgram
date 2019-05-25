@@ -80,7 +80,7 @@ Page({
             })
         } else if (this.type == 3) {
             wx.setNavigationBarTitle({
-                title: 'Emdit'
+                title: 'EMDT'
             })
         } else if (this.type == 4) {
             wx.setNavigationBarTitle({

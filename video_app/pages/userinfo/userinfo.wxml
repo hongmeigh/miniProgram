@@ -1,21 +1,26 @@
 <!--miniprogram/pages/person/person.wxml-->
 <view class='personal-info'>
     <view bindtap='chooseImg' class='info-item user-img'>
-        <text>头像</text>
-        <image src='{{avatarUrl || userImg}}'></image>
+        <view class="label">头像</view>
+        <view class="img-wrap">
+            <image src="{{avatarUrl || userImg || '../../images/userinfo.png'}}"></image>
+        </view>
     </view>
     <view class='info-item user-name'>
-        <input placeholder-class="color-333" bindinput="bindNicknameInput" type="text" placeholder="姓名" value="{{nickname}}"/>
+        <view class="label">昵称</view>
+        <input placeholder-class="color-ddd" bindinput="bindNicknameInput" type="text" placeholder="请填写昵称" value="{{nickname}}"/>
     </view>
     <view class='info-item user-sex'>
+        <view class="label">性别</view>
         <picker class='picker-sex' bindchange="bindSexChange" value="{{index}}" range="{{sexList}}">
-            <view class="picker">
-                {{sex || '性别'}}
+            <view class="picker {{sex ? '' : 'color-ddd'}}">
+                {{sex || '请选择性别'}}
             </view>
         </picker>
     </view>
     <view class='info-item user-phone'>
-        <input placeholder-class="color-333" bindinput="bindMobileInput" type="number" placeholder="手机号码" value="{{mobile}}"/>
+        <view class="label">手机号</view>
+        <input placeholder-class="color-ddd" bindinput="bindMobileInput" type="number" placeholder="请输入手机号码" value="{{mobile}}"/>
     </view>
     <view bindtap='save' class='save-btn'>保存</view>
 </view>

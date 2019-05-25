@@ -6,11 +6,18 @@
     border-bottom: 1rpx solid #eee;
     font-size: 30rpx;
     color: #333;
+    display: flex;
+}
+.info-item .label {
+    width: 200rpx;
+    line-height: 120rpx;
+    font-size: 32rpx;
 }
 .info-item input {
     display: block;
-    width: 100%;
+    width: 460rpx;
     height: 100%;
+    text-align: right;
 }
 .info-item .color-333 {
     color: #333;
@@ -20,17 +27,25 @@
     width: 100%;
     height: 100%;
     line-height: 120rpx;
+    text-align: right;
 }
 .save-btn {
-    width: 90%;
-    height: 70rpx;
+    width: 670rpx;
+    height: 80rpx;
     color: #fff;
     text-align: center;
-    line-height: 70rpx;
+    line-height: 80rpx;
     background-color: #A020F0;
     border-radius: 10rpx;
     margin: 60rpx auto 0;
-    font-size: 30rpx;
+    font-size: 32rpx;
+    position: fixed;
+    bottom: 40rpx;
+    left: 40rpx;
+}
+.img-wrap {
+    width: 460rpx;
+    text-align: right;
 }
 .user-img {
     line-height: 120rpx;
@@ -42,4 +57,7 @@
     width: 100rpx;
     height: 100rpx;
     float: right;
+}
+.color-ddd {
+    color: #999;
 }
