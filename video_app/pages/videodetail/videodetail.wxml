@@ -23,11 +23,11 @@
             </view>
             <view class="comment-list-wrap">
                 <view wx:for="{{commentList}}" wx:key="{{index}}" class="comment-item">
-                    <image class="left-img" src="{{item.userImg || '../../images/userinfo.png'}}"></image>
+                    <image class="left-img" src="{{item.commenter_avatar || '../../images/userinfo.png'}}"></image>
                     <view class="comment-cont">
-                        <view class="name">{{item.userName}}</view>
-                        <view class="cont">{{item.commentContent}}</view>
-                        <view class="date">{{item.publishTime}}</view>
+                        <view class="name">{{item.commenter_name}}</view>
+                        <view class="cont">{{item.content}}</view>
+                        <view class="date">{{item.create_at}}</view>
                     </view>
                 </view>
                 <view bindtap="loadMore" class="load-more">{{loadText}}</view>

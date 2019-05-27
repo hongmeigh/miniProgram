@@ -25,11 +25,11 @@ export const ajaxApi = {
     },
     // 获取评论列表
     getCommentList(data) {
-        return get(`${basePath}/comment/ls`, data);
+        return get(`${basePath}/video/comment/ls`, data);
     },
     // 发布评论
     publishComment(data) {
-        return post(`${basePath}/comment/add`, data);
+        return post(`${basePath}/video/comment/add`, data);
     }
 };
 

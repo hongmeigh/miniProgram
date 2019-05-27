@@ -19,7 +19,7 @@ const request = (url, method, _data = {}) => {
     const token = getToken();
     const header = Object.assign({}, {
         'Content-type': 'application/x-www-form-urlencoded',
-        Authorization: token,
+        AuthToken: token,
         // SubType: 'miniProgram',
         // cookie: 'token=' + token
     });

@@ -1,10 +1,10 @@
 <!--pages/videolist/videolist.wxml-->
 <view class="video-wrap">
-    <view wx:for="{{videoList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.videoId}}" class="list-item">
-        <image class="left-img" src="{{item.videoImg || '../../images/day1.png'}}"></image>
+    <view wx:for="{{videoList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.id}}" class="list-item">
+        <image class="left-img" src="{{item.video_cover || '../../images/day1.png'}}"></image>
         <view class="video-cont">
-            <view class="title">{{item.videoTitle}}</view>
-            <view class="description">{{item.videoDescription}}</view>
+            <view class="title">{{item.title}}</view>
+            <view class="description">{{item.description}}</view>
         </view>
     </view>
     <view class="loading">{{loadText}}</view>

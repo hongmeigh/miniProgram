@@ -37,11 +37,13 @@ App({
                     if (res.code) {
                         wx.setStorageSync('userCode', res.code);
                         ajaxApi.codeToToken({
-                            code: res.code
+                            wxcode: res.code,
+                            wxappid: 'wxbadd77563dc6c61d'
                         }).then((response = {}) => {
                             //返回token
-                            if (response.data.token) {
-                                wx.setStorageSync('token', res.data.token);
+                            console.log(111, response)
+                            if (response.data.auth_token) {
+                                wx.setStorageSync('token', response.data.auth_token);
                                 resolve(res.data)
                             } else {
                                 console.log(res.errMsg);

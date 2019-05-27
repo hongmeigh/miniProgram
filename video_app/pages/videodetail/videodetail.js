@@ -45,7 +45,11 @@ Page({
         totalPage: 2,
         loadText: '加载更多评论',
         popShow: false,
-        userInfo: {}
+        userInfo: {},
+        file: {
+            name: '',
+            url: ''
+        }
     },
 
     /**
@@ -64,10 +68,10 @@ Page({
             console.log(res);
             res.data = res.data || {};
             this.setData({
-                videoUrl: res.data.videoUrl,
-                teacherInfo: res.data.teacherContent.replace(/<img /g, '<img class="rich_img" '),
-                videoDetail: res.data.videoContent.replace(/<img /g, '<img class="rich_img" '),
-                annex: res.data.annex
+                videoUrl: res.data.video_url,
+                teacherInfo: res.data.presenter_profile.replace(/<img /g, '<img class="rich_img" '),
+                videoDetail: res.data.content.replace(/<img /g, '<img class="rich_img" '),
+                file: res.data.attach ? JSON.parse(res.data.attach)[0] : ''
             })
         })
     },
