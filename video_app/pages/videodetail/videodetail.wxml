@@ -33,7 +33,10 @@
                 <view bindtap="loadMore" class="load-more">{{loadText}}</view>
             </view>
         </view>
-        <view wx:if="{{tabIndex == 3}}" class="preview"></view>
+        <view wx:if="{{tabIndex == 3}}" class="preview">
+            <view wx:if="{{file.name}}" class="annex-name">附件：{{file.name}}</view>
+            <view wx:if="{{file.url}}" bindtap="preview" class="annex-btn">文件预览</view>
+        </view>
     </view>
     <view wx:if="{{popShow}}" class="popup-wrap">
         <view bindtap="hidePop" class="black-bg"></view>

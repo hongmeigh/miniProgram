@@ -12,6 +12,7 @@ App({
     },
     login() {
         const token = wx.getStorageSync('token');
+        const self = this;
         return new Promise((resolve, reject) => {
             if (token) {
                 wx.checkSession({
@@ -21,12 +22,12 @@ App({
                     },
                     fail() {
                         // session_key 已经失效，需要重新执行登录流程
-                         return this.wxlogin();
+                         return self.wxlogin();
                     }
                 })
             } else {
                 //reject({ message: 'token is null' });
-                return this.wxlogin();
+                return self.wxlogin();
             }
         });
     },

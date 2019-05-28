@@ -11,19 +11,19 @@
         </view>
     </view>
     <view class="module-wrap">
-        <view bindtap="toVideoList" data-index="1" class="module-item">
+        <view bindtap="toVideoList" data-index="10" class="module-item">
             <image class="bg-img" src="../../images/icon1.png"></image>
             <view class="txt">讲堂</view>
         </view>
-        <view bindtap="toVideoList" data-index="2" class="module-item">
+        <view bindtap="toVideoList" data-index="20" class="module-item">
             <image class="bg-img" src="../../images/icon2.png"></image>
             <view class="txt">病例</view>
         </view>
-        <view bindtap="toVideoList" data-index="3" class="module-item">
+        <view bindtap="toVideoList" data-index="30" class="module-item">
             <image class="bg-img" src="../../images/icon3.png"></image>
             <view class="txt">EMDT</view>
         </view>
-        <view bindtap="toVideoList" data-index="4" class="module-item">
+        <view bindtap="toVideoList" data-index="40" class="module-item">
             <image class="bg-img" src="../../images/icon4.png"></image>
             <view class="txt">患教</view>
         </view>

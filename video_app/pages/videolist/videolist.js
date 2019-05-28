@@ -60,7 +60,8 @@ Page({
         loadText: '上拉加载更多',
         totalPage: 3,
         page: 1,
-        videoList: [] 
+        videoList: [],
+        pageSize: 20
     },
 
     /**
@@ -68,21 +69,21 @@ Page({
      */
     onLoad: function (options) {
         console.log(options);
-        this.searchValue = options.search;
-        this.type = options.type;
-        if (this.type == 1) {
+        this.searchValue = options.search || '';
+        this.type = options.type || '';
+        if (this.type == 10) {
             wx.setNavigationBarTitle({
                 title: '讲堂'
             })
-        } else if (this.type == 2) {
+        } else if (this.type == 20) {
             wx.setNavigationBarTitle({
                 title: '病例'
             })
-        } else if (this.type == 3) {
+        } else if (this.type == 30) {
             wx.setNavigationBarTitle({
                 title: 'EMDT'
             })
-        } else if (this.type == 4) {
+        } else if (this.type == 40) {
             wx.setNavigationBarTitle({
                 title: '患教'
             })
@@ -98,24 +99,25 @@ Page({
         loadText: '加载中...'
       })
       ajaxApi.getVideoList({
-        type: this.type,
-        videoTitle: this.searchValue || '',
-        page: this.data.page
+        type: this.type || '',
+        title: this.searchValue || '',
+        page_no: this.data.page,
+        page_size: this.data.pageSize
       }).then((res = {}) => {
         console.log(res);
         res.data = res.data || {};
-        res.data.videoList = res.data.videoList || [];
+        res.data.videoList = res.data.list || [];
         let loadText = '';
-        if (this.data.page == 1 && res.data.videoList.length == 0) {
+        if (this.data.page == 1 && res.data.list.length == 0) {
           loadText = '暂无数据'
-        } else if (this.data.page >= 1 && this.data.page < res.data.totalPage) {
+        } else if (this.data.page >= 1 && this.data.page < res.data.total_page) {
           loadText = '上拉加载更多'
-        } else if (this.data.page >= 1 && this.data.page >= res.data.totalPage) {
+        } else if (this.data.page >= 1 && this.data.page >= res.data.total_page) {
           loadText = '加载完毕'
         }
         this.setData({
-          totalPage: res.data.totalPage,
-          videoList: this.data.videoList.concat(res.data.videoList),
+          totalPage: res.data.total_page,
+          videoList: this.data.videoList.concat(res.data.list),
           page: this.data.page + 1,
           loadText: loadText
         })

@@ -45,7 +45,7 @@ Page({
   toVideoList(e) {
     console.log(e)
     wx.navigateTo({
-      url: `/pages/videolist/videolist?type=${e.currentTarget.dataset.index}`
+      url: `/pages/videolist/videolist?type=${e.currentTarget.dataset.index || ''}`
     })
   },
   onLoad: function () {

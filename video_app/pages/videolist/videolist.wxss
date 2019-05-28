@@ -20,19 +20,20 @@
 }
 .video-wrap .list-item .title {
   font-size: 34rpx;
-  margin-top: 6rpx;
+  margin-top: 10rpx;
   color: #111;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .video-wrap .list-item .description {
-  margin-top: 16rpx;
+  margin-top: 10rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
   font-size: 28rpx;
+  color: #666;
 }
 .loading {
     text-align: center;

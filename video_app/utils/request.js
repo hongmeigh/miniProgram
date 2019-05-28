@@ -33,11 +33,24 @@ const request = (url, method, _data = {}) => {
                 const { statusCode, data } = res;
                 // console.log(res)
                 // if (statusCode == 401 || statusCode == 403) {
-                if (statusCode == 401 || statusCode == 403 || data.code == 401 || data.code == 403 || data.code == 605) {
+                if (statusCode == 401 || statusCode == 403 || data.code == 401 || data.code == 1001 || data.code == 403 || data.code == 605) {
                     wx.setStorageSync('token', '');
                     wx.setStorageSync('userCode', '');
-                } else {
+                } else if (data.code == 1) {
                     resolve(data);
+                } else {
+                    wx.showModal({
+                        title: '错误',
+                        content: data.msg || '出错啦',
+                        success (res) {
+                            if (res.confirm) {
+                                console.log('用户点击确定')
+                            } else if (res.cancel) {
+                                console.log('用户点击取消')
+                            }
+                        }
+                    })
+                      
                 }
             },
             fail: (err) => {

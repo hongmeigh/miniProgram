@@ -1,7 +1,7 @@
 <!--pages/videolist/videolist.wxml-->
 <view class="video-wrap">
     <view wx:for="{{videoList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.id}}" class="list-item">
-        <image class="left-img" src="{{item.video_cover || '../../images/day1.png'}}"></image>
+        <image class="left-img" src="{{item.video_cover || '../../images/default.png'}}"></image>
         <view class="video-cont">
             <view class="title">{{item.title}}</view>
             <view class="description">{{item.description}}</view>

@@ -35,9 +35,9 @@ Page({
     data: {
         tabIndex: 0,
         video: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
-        videoUrl: 'https://ent-21.oss-cn-shanghai.aliyuncs.com/meeting/5ca1ddf6-ae16-41fc-972f-9d979632463a.mp4',
-        teacherInfo: '这里是讲师的简介的内容，这里是讲师的简介的内容， 这里是讲师的简介的内容 这里是讲师的简介的内容这里是讲师的简介的内容这里是讲师的简介的内容，这里是讲师的简介的内容这里是讲师的简介的内容',
-        videoDetail: '这里是会议详情的内容，这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容，这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容，这里是会议详情的内容这里是会议详情的内容这里是会议详情的内容。',
+        videoUrl: '',
+        teacherInfo: '',
+        videoDetail: '',
         annex: '',
         commentList: [],
         commentValue: '',
@@ -61,9 +61,25 @@ Page({
         this.getCommentList();
         this.queryUserInfo();
     },
+    preview() {
+        const self = this;
+        wx.downloadFile({
+            // 示例 url，并非真实存在
+            url: self.data.file.url,
+            success: function (res) {
+                const filePath = res.tempFilePath
+                wx.openDocument({
+                    filePath: filePath,
+                    success: function (res) {
+                        console.log('打开文档成功')
+                    }
+                })
+            }
+        })
+    },
     getVideoDetail() {
         ajaxApi.getVideoDetail({
-            videoId: this.videoId
+            id: this.videoId
         }).then((res = {}) => {
             console.log(res);
             res.data = res.data || {};
@@ -84,7 +100,7 @@ Page({
         })
         ajaxApi.getCommentList({
             page: this.data.page,
-            videoId: this.videoId
+            video_id: this.videoId
         }).then((res = {}) => {
             console.log(res);
             res.data = res.data || {};
@@ -92,14 +108,14 @@ Page({
             let loadText = '';
             if (this.data.page === 1 && !res.data.commentList.length) {
                 loadText = '暂无评论';
-            } else if (this.data.page >= 1 && this.data.page < res.data.totalPage) {
+            } else if (this.data.page >= 1 && this.data.page < res.data.total_page) {
                 loadText = '加载更多评论';
-            } else if (this.data.page >= 1 && this.data.page >= res.data.totalPage) {
+            } else if (this.data.page >= 1 && this.data.page >= res.data.total_page) {
                 loadText = '没有更多评论了';
             }
             this.setData({
                 loadText: loadText,
-                totalPage: res.data.totalPage,
+                totalPage: res.data.total_page || 0,
                 commentList: this.data.commentList.concat(res.data.commentList),
                 page: this.data.page + 1
             })
