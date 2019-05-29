@@ -1,35 +1,11 @@
 //index.js
 //获取应用实例
-const app = getApp()
+import {ajaxApi} from '../../utils/api.js';
 
 Page({
   data: {
-    videoLiveList: [{
-      bgUrl: '../../images/day1.png'
-    }, {
-      bgUrl: '../../images/day2.png'
-    }],
-    videoList: [{
-      imgUrl: 'https://img1.dxycdn.com/2019/0118/457/3323887035940868926-10.png',
-      title: '这里是一个大标题',
-      description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-    }, {
-      imgUrl: 'https://img1.dxycdn.com/2019/0416/334/3340209691929395091-73.png',
-      title: '这里是一个大标题这里是一个大标题,这里是一个大标题',
-      description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-    }, {
-      imgUrl: 'https://img1.dxycdn.com/2019/0416/751/3340212324744739821-73.png',
-      title: '这里是一个大标题',
-      description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-    }, {
-      imgUrl: 'https://img1.dxycdn.com/2019/0509/565/3344466895725820036-73.png',
-      title: '这里是一个大标题',
-      description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-    }, {
-      imgUrl: 'https://res.dxycdn.com/cms/upload/asset/2017/05/22/A1495089762.png',
-      title: '这里是一个大标题',
-      description: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-    }]
+    videoLiveList: [],
+    videoList: []
   },
   //事件处理函数
   toSearch: function() {
@@ -49,6 +25,29 @@ Page({
     })
   },
   onLoad: function () {
-    
-  }
+    this.searchVideo();
+    this.query();
+  },
+  searchVideo() {
+    ajaxApi.getVideoList({
+      page_no: 1,
+      page_size: 5
+    }).then((res = {}) => {
+      console.log(res);
+      res.data = res.data || {};
+      this.setData({
+        videoList: res.data.list || []
+      })
+    })
+  },
+  query() {
+    ajaxApi.queryLiveUrl({
+      name: "livebroad"
+    }).then((res = {}) => {
+      res.data = res.data || {};
+      this.setData({
+        videoLiveList: res.data.val ? JSON.parse(res.data.val) : []
+      })
+    })
+  },
 })

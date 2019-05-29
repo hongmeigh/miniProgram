@@ -1,56 +1,6 @@
 // pages/videolist/videolist.js
 import {ajaxApi} from '../../utils/api.js';
-const list = [{
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }, {
-    videoId: 1,
-    videoImg: '../../images/day1.png',
-    videoTitle: '这里是一个大标题',
-    videoDescription: '这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介这里是一段简介，这里是一段简介，这里是一段简介，这里是一段简介这里是一段简介'
-  }];
+
 Page({
 
     /**
@@ -106,7 +56,7 @@ Page({
       }).then((res = {}) => {
         console.log(res);
         res.data = res.data || {};
-        res.data.videoList = res.data.list || [];
+        res.data.list = res.data.list || [];
         let loadText = '';
         if (this.data.page == 1 && res.data.list.length == 0) {
           loadText = '暂无数据'

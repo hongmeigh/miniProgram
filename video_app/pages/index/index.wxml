@@ -4,10 +4,13 @@
         <input class="search-input" disabled type="text" placeholder="搜索视频" />
         <image class="search-icon" src="../../images/search.png"></image>
     </view>
-    <view class="video-live">
-        <view wx:for="{{videoLiveList}}" wx:key="{{index}}" class="live-item item-{{index === 0 ? 'l' : 'r'}}">
-            <image class="bg-img" src="{{item.bgUrl}}"></image>
-            <image class="live-icon" src="../../images/live.png"></image>
+    <view wx:if="{{videoLiveList.length}}" class="video-live">
+        <view wx:for="{{videoLiveList}}" wx:key="{{index}}" class="live-item item-{{index % 2 === 0 ? 'l' : 'r'}}">
+            <image class="bg-img" src="{{item.imageUrl}}"></image>
+            <!-- <image class="live-icon" src="../../images/live.png"></image> -->
+            <view class="live-label">
+                直播中...
+            </view>
         </view>
     </view>
     <view class="module-wrap">
@@ -34,7 +37,7 @@
             <view bindtap="toVideoList" class="more">查看更多</view>
         </view>
         <view wx:for="{{videoList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.id}}" class="list-item">
-            <image class="left-img" src="{{item.imgUrl}}"></image>
+            <image class="left-img" mode="aspectFill" src="{{item.video_cover}}"></image>
             <view class="video-cont">
                 <view class="title">{{item.title}}</view>
                 <view class="description">{{item.description}}</view>

@@ -1,15 +1,35 @@
 const storage = require('./storage');
+import login from './login.js'
 
 function getToken() {
     const token = storage.get('token') || '';
     return token;
 }
 
-module.exports = {
-    get: (url, data) => {
-        return request(url, 'GET', data);
+const HTTP = {
+    get(url, data) {
+        return login().then(() => {
+            return request(url, 'GET', data);
+        }).catch((error) => {
+            wx.showToast({
+                title: error.msg || error.message || error.errMsg || '出错了',
+                icon: 'none',
+                duration: 2000
+            })
+        })
     },
-    post: (url, data) => {
+    post(url, data) {
+        return login().then(() => {
+            return request(url, 'POST', data);
+        }).catch((error) => {
+            wx.showToast({
+                title: error.msg || error.message || error.errMsg || '出错了',
+                icon: 'none',
+                duration: 2000
+            })
+        })
+    },
+    request(url, data) {
         return request(url, 'POST', data);
     }
 };
@@ -68,3 +88,4 @@ const request = (url, method, _data = {}) => {
         })
     });
 };
+export default HTTP;

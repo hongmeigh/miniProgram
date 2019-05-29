@@ -27,13 +27,15 @@
 }
 .video-live {
   margin: 40rpx;
-  display: flex;
+  overflow: hidden
 }
 .video-live .live-item {
-  flex: 1;
+  float: left;
+  width: 300rpx;
   height: 200rpx;
   border-radius: 10rpx;
   position: relative;
+  margin-bottom: 20rpx;
 }
 .video-live .live-item .bg-img {
   display: block;
@@ -49,6 +51,21 @@
   margin: -45rpx 0 0 -45rpx;
   z-index: 2;
 }
+.video-live .live-label {
+    width: 200rpx;
+    height: 60rpx;
+    font-size: 28rpx;
+    background-color: #A020F0;
+    border-radius: 30rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -30rpx 0 0 -100rpx;
+    z-index: 2;
+    text-align: center;
+    line-height: 60rpx;
+    color: #fff;
+} 
 .video-live .item-l {
   margin-right: 30rpx;
 }

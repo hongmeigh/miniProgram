@@ -1,36 +1,6 @@
 // pages/videodetail/videodetail.js
 import {ajaxApi} from '../../utils/api.js';
-const list = [{
-    userName: '小明',
-    userImg: '../../images/userinfo.png',
-    commentContent: '非常实用 感觉帮助很大，清晰明了，希望可以继续出这么好的视频',
-    publishTime: '2019-05-14 10:29'
-}, {
-    userName: '小明',
-    userImg: '../../images/userinfo.png',
-    commentContent: '非常实用 感觉帮助很大，清晰明了，希望可以继续出这么好的视频,非常实用 感觉帮助很大，清晰明了，希望可以继续出这么好的视频',
-    publishTime: '2019-05-14 10:29'
-}, {
-    userName: '小明',
-    userImg: '../../images/userinfo.png',
-    commentContent: '非常实用 感觉帮助很大，清晰明了，希望可以继续出这么好的视频',
-    publishTime: '2019-05-14 10:29'
-}, {
-    userName: '小明',
-    userImg: '../../images/userinfo.png',
-    commentContent: '非常实用 感觉帮助很大，清晰明了，希望可以继续出这么好的视频',
-    publishTime: '2019-05-14 10:29'
-}, {
-    userName: '小明',
-    userImg: '../../images/userinfo.png',
-    commentContent: '非常实用 感觉帮助很大，清晰明了，希望可以继续出这么好的视频',
-    publishTime: '2019-05-14 10:29'
-}, {
-    userName: '小明',
-    userImg: '../../images/userinfo.png',
-    commentContent: '非常实用 感觉帮助很大，清晰明了，希望可以继续出这么好的视频',
-    publishTime: '2019-05-14 10:29'
-}]
+import {formatTime} from '../../utils/util.js';
 Page({
     data: {
         tabIndex: 0,
@@ -42,7 +12,7 @@ Page({
         commentList: [],
         commentValue: '',
         page: 1,
-        totalPage: 2,
+        totalPage: 1,
         loadText: '加载更多评论',
         popShow: false,
         userInfo: {},
@@ -99,14 +69,18 @@ Page({
             loadText: '加载中...',  
         })
         ajaxApi.getCommentList({
-            page: this.data.page,
+            page_size: 6,
+            page_no: this.data.page,
             video_id: this.videoId
         }).then((res = {}) => {
             console.log(res);
             res.data = res.data || {};
-            res.data.commentList = res.data.commentList || [];
+            res.data.list = res.data.list || [];
+            res.data.list.forEach((item) => {
+                item.create_at = formatTime(new Date(item.create_at))
+            })
             let loadText = '';
-            if (this.data.page === 1 && !res.data.commentList.length) {
+            if (this.data.page === 1 && !res.data.list.length) {
                 loadText = '暂无评论';
             } else if (this.data.page >= 1 && this.data.page < res.data.total_page) {
                 loadText = '加载更多评论';
@@ -116,7 +90,7 @@ Page({
             this.setData({
                 loadText: loadText,
                 totalPage: res.data.total_page || 0,
-                commentList: this.data.commentList.concat(res.data.commentList),
+                commentList: this.data.commentList.concat(res.data.list),
                 page: this.data.page + 1
             })
         })
@@ -156,19 +130,28 @@ Page({
             });
             return;
         }
-        if (!this.data.userInfo.username) {
-            this.setData({
-                popShow: true
-            })
-        }
+        // if (!this.data.userInfo.username) {
+        //     this.setData({
+        //         popShow: true
+        //     });
+        //     return;
+        // }
         ajaxApi.publishComment({
-            commentContent: this.data.commentValue
+            content: this.data.commentValue,
+            video_id: this.videoId
         }).then((res = {}) => {
             this.setData({
                 page: 1,
+                totalPage: 1,
                 commentList: []
             }, () => {
                 this.getCommentList();
+            })
+        }).catch((error) => {
+            wx.showToast({
+                title: error.msg || error.message || error.errMsg || '出错了',
+                icon: 'none',
+                duration: 2000
             })
         })
     },

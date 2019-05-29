@@ -1,11 +1,12 @@
-import {get, post} from './request';
+import HTTP from './request';
 //import { API_ROOT } from './constants';
+const {get, post, request} = HTTP;
 
 const basePath = 'https://d1.ydguanjia.com/svere/api';
 export const ajaxApi = {
     // 微信登录
     codeToToken(data) {
-        return post(`${basePath}/wxlogin`, data)
+        return request(`${basePath}/wxlogin`, data)
     },
     // 获取用户信息
     getUserInfo(data) {
@@ -30,7 +31,11 @@ export const ajaxApi = {
     // 发布评论
     publishComment(data) {
         return post(`${basePath}/video/comment/add`, data);
-    }
+    },
+    // 获取直播地址
+    queryLiveUrl(data) {
+        return HTTP.get(`${basePath}/config/get`, data)
+    },
 };
 
 
