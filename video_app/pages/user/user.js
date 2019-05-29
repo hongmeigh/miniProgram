@@ -30,6 +30,24 @@ Page({
         this.setData({
             popShow: false
         })
+        if (e.detail.userInfo) {
+            ajaxApi.updateUserInfo({
+                nickname: e.detail.userInfo.nickName,
+                avatar_url: e.detail.userInfo.avatarUrl,
+                sex: e.detail.userInfo.gender == 1 ? '男' : e.detail.userInfo.gender == 2 ? '女' : ''
+                // sex: this.data.sex
+            }).then(res => {
+                this.queryUserInfo();
+                wx.showToast({
+                    title: '授权成功',
+                    icon: 'success',
+                    duration: 2000
+                })
+                // update globalData.userInfo if needed
+            }).catch((error) => {
+                console.log(error)
+            })
+        }
     },
     hidePop() {
         this.setData({
@@ -63,7 +81,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        this.queryUserInfo();
     },
 
     /**

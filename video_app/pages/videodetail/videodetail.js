@@ -19,7 +19,8 @@ Page({
         file: {
             name: '',
             url: ''
-        }
+        },
+        height: (wx.getSystemInfoSync().screenHeight - 360) * 2
     },
 
     /**
@@ -30,6 +31,7 @@ Page({
         this.getVideoDetail();
         this.getCommentList();
         this.queryUserInfo();
+        console.log(wx.getSystemInfoSync().windowHeight, wx.getSystemInfoSync().screenHeight)
     },
     preview() {
         const self = this;

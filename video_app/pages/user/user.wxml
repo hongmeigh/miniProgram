@@ -1,9 +1,9 @@
 <!--pages/user/user.wxml-->
 <view class='user-info'>
     <view class='info'>
-        <image class='user-img' src='../../images/userinfo.png'></image>
-        <view wx:if="{{userInfo.username}}" class='user-name'>小明</view>
-        <view bindtap="toLogin" wx:if="{{!userInfo.username}}" class='user-name'>登录</view>
+        <image class='user-img' src="{{userInfo.avatar_url || '../../images/userinfo.png'}}"></image>
+        <view wx:if="{{userInfo.nickname}}" class='user-name'>{{userInfo.nickname}}</view>
+        <view bindtap="toLogin" wx:if="{{!userInfo.nickname}}" class='user-name'>登录</view>
     </view>
     <view bindtap="toUserInfo" class='list-item'>
         个人资料

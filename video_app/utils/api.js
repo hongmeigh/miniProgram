@@ -12,6 +12,10 @@ export const ajaxApi = {
     getUserInfo(data) {
         return get(`${basePath}/user/info`, data)
     },
+    // 更新用户信息
+    updateUserInfo(data) {
+        return post(`${basePath}/user/upd`, data)
+    },
     // 获取视频列表
     getVideoList(data) {
         return get(`${basePath}/video/ls`, data)

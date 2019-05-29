@@ -1,4 +1,5 @@
 // miniprogram/pages/person/person.js
+import {ajaxApi} from '../../utils/api.js';
 Page({
 
     /**
@@ -13,6 +14,7 @@ Page({
         //     company_name: '',
         //     mobile: ''
         // }
+        userInfo: {},
         nickname: '',
         avatarUrl: '',
         sex: '',
@@ -23,22 +25,23 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    // onLoad: function(options) {
-    //     getUserInfo().then(u => {
-    //         console.log(u);
-    //         this.setData({ userInfo: u })
-    //     })
-    // },
+    onLoad: function(options) {
+        this.queryUserInfo();
+    },
     onShow: function(){
-        // getUserInfo().then(u => {
-        //     this.setData({
-        //         nickname: u.nickname,
-        //         avatarUrl: u.avatarUrl,
-        //         sex: u.sex,
-        //         company_name: u.company_name,
-        //         mobile: u.mobile
-        //     })
-        // })
+
+    },
+    queryUserInfo() {
+        ajaxApi.getUserInfo().then((res = {}) => {
+            console.log(res);
+            res.data = res.data || {};
+            this.setData({
+                nickname: res.data.nickname || '',
+                avatarUrl: res.data.avatar_url || '',
+                sex: res.data.sex || '',
+                mobile: res.data.phone_no || ''
+            })
+        })
     },
 
     bindNicknameInput(e) {
@@ -60,23 +63,21 @@ Page({
         })
     },
     save() {
-        // updateUserInfo({
-        //     nickname: this.data.nickname,
-        //     avatarUrl: this.data.avatarUrl,
-        //     company_name: this.data.company_name,
-        //     mobile: this.data.mobile,
-        //     sex: this.data.sex
-        // }).then(res => {
-        //     console.log('update userInfo succeed')
-        //     wx.showToast({
-        //         title: '保存成功',
-        //         icon: 'success',
-        //         duration: 2000
-        //     })
-        //     // update globalData.userInfo if needed
-        // }).catch((error) => {
-        //     console.log(error)
-        // })
+        ajaxApi.updateUserInfo({
+            nickname: this.data.nickname,
+            avatar_url: this.data.avatarUrl,
+            phone_no: this.data.mobile,
+            sex: this.data.sex
+        }).then(res => {
+            wx.showToast({
+                title: '保存成功',
+                icon: 'success',
+                duration: 2000
+            })
+            // update globalData.userInfo if needed
+        }).catch((error) => {
+            console.log(error)
+        })
     },
     chooseImg() {
         const self = this;
@@ -90,17 +91,31 @@ Page({
                 self.setData({
                     userImg: tempFilePaths
                 })
-                // wx.uploadFile({
-                //     url: '',
-                //     filePath: tempFilePaths[0],
-                //     name: 'file',
-                //     formData: {
-                //         user: 'test'
-                //     },
-                //     success(res) {
-                //         const data = res.data
-                //     }
-                // })
+                console.log(222, res)
+                wx.uploadFile({
+                    url: 'https://d1.ydguanjia.com/svere/api/upload',
+                    filePath: tempFilePaths[0],
+                    name: 'file',
+                    formData: {
+                    },
+                    success(res) {
+                        console.log(res)
+                        const data = res.data;
+                        const response = data ? JSON.parse(data) : {};
+                        if (response.code == 1) {
+                            self.setData({
+                                avatarUrl: response.data.file_url
+                            })
+                        } else {
+                            wx.showToast({
+                                title: response.msg || '上传图片失败',
+                                icon: 'none',
+                                duration: 2000
+                            })
+                              
+                        }
+                    }
+                })
             }
         })
     },

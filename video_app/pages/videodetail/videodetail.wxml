@@ -10,13 +10,13 @@
             <view bindtap="changeTab" data-tab="2" class="tab-item tab-{{tabIndex == 2 ? 'active' : 'no'}}">评论</view>
             <view bindtap="changeTab" data-tab="3" class="tab-item tab-{{tabIndex == 3 ? 'active' : 'no'}}">附件预览</view>
         </view>
-        <view wx:if="{{tabIndex == 0}}" class="introduce">
+        <scroll-view scroll-y style="height: {{height}}rpx" wx:if="{{tabIndex == 0}}" class="introduce">
             <rich-text nodes="{{teacherInfo}}" bindtap="tap"></rich-text>
-        </view>
-        <view wx:if="{{tabIndex == 1}}" class="detail">
+        </scroll-view>
+        <scroll-view scroll-y style="height: {{height}}rpx" wx:if="{{tabIndex == 1}}" class="detail">
             <rich-text nodes="{{videoDetail}}" bindtap="tap"></rich-text>
-        </view>
-        <view wx:if="{{tabIndex == 2}}" class="comment">
+        </scroll-view>
+        <scroll-view scroll-y style="height: {{height}}rpx" wx:if="{{tabIndex == 2}}" class="comment">
             <view class="publish-comment">
                 <input class="publish-input" type="text" placeholder="发布评论" value="{{commentValue}}" bindinput="bindKeyInput"/>
                 <view bindtap="publish" class="publish">发布</view>
@@ -32,11 +32,11 @@
                 </view>
                 <view bindtap="loadMore" class="load-more">{{loadText}}</view>
             </view>
-        </view>
-        <view wx:if="{{tabIndex == 3}}" class="preview">
+        </scroll-view>
+        <scroll-view scroll-y style="height: {{height}}rpx" wx:if="{{tabIndex == 3}}" class="preview">
             <view wx:if="{{file.name}}" class="annex-name">附件：{{file.name}}</view>
             <view wx:if="{{file.url}}" bindtap="preview" class="annex-btn">文件预览</view>
-        </view>
+        </scroll-view>
     </view>
     <view wx:if="{{popShow}}" class="popup-wrap">
         <view bindtap="hidePop" class="black-bg"></view>

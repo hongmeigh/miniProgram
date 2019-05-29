@@ -10,6 +10,7 @@
     height: 200rpx;
     display: block;
     margin: 0 auto;
+    border-radius: 100rpx;
 }
 .user-info .info .user-name {
     text-align: center;
