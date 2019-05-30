@@ -6,7 +6,8 @@
         "pages/videolist/videolist",
         "pages/videodetail/videodetail",
         "pages/history/history",
-        "pages/userinfo/userinfo"
+        "pages/userinfo/userinfo",
+        "pages/writecomment/writecomment"
     ],
     "window": {
         "backgroundTextStyle": "light",

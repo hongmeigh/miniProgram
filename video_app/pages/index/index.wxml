@@ -4,15 +4,18 @@
         <input class="search-input" disabled type="text" placeholder="搜索视频" />
         <image class="search-icon" src="../../images/search.png"></image>
     </view>
-    <view wx:if="{{videoLiveList.length}}" class="video-live">
-        <view wx:for="{{videoLiveList}}" wx:key="{{index}}" class="live-item item-{{index % 2 === 0 ? 'l' : 'r'}}">
-            <image class="bg-img" src="{{item.imageUrl}}"></image>
-            <!-- <image class="live-icon" src="../../images/live.png"></image> -->
-            <view class="live-label">
-                直播中...
+    <scroll-view scroll-x wx:if="{{videoLiveList.length}}" class="video-live">
+        <view class="live-wrap">
+            <view wx:for="{{videoLiveList}}" wx:key="{{index}}" class="live-item item-{{index === 0 ? 'll' : ''}}">
+                <image class="bg-img" src="{{item.imageUrl}}"></image>
+                <!-- <image class="live-icon" src="../../images/live.png"></image> -->
+                <view class="live-label">
+                    直播中...
+                </view>
             </view>
         </view>
-    </view>
+        
+    </scroll-view>
     <view class="module-wrap">
         <view bindtap="toVideoList" data-index="10" class="module-item">
             <image class="bg-img" src="../../images/icon1.png"></image>

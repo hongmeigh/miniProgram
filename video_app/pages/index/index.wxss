@@ -26,16 +26,25 @@
   left: 30rpx;
 }
 .video-live {
+  width: 670rpx;
   margin: 40rpx;
-  overflow: hidden
+}
+.live-wrap {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: nowrap;
 }
 .video-live .live-item {
-  float: left;
-  width: 300rpx;
+  flex-shrink: 0;
+  width: 310rpx;
   height: 200rpx;
   border-radius: 10rpx;
   position: relative;
   margin-bottom: 20rpx;
+  margin-left: 50rpx;
+}
+.video-live .item-ll {
+  margin-left: 0;
 }
 .video-live .live-item .bg-img {
   display: block;
