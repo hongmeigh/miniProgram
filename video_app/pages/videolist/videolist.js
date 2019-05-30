@@ -71,7 +71,13 @@ Page({
           page: this.data.page + 1,
           loadText: loadText
         })
-      })
+      }).catch((error) => {
+        wx.showToast({
+            title: error.msg || error.message || error.errMsg || '出错了',
+            icon: 'none',
+            duration: 2000
+        })
+    })
     },
     toDetail(e) {
       wx.navigateTo({

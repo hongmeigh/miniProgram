@@ -10,23 +10,11 @@ const HTTP = {
     get(url, data) {
         return login().then(() => {
             return request(url, 'GET', data);
-        }).catch((error) => {
-            wx.showToast({
-                title: error.msg || error.message || error.errMsg || '出错了',
-                icon: 'none',
-                duration: 2000
-            })
         })
     },
     post(url, data) {
         return login().then(() => {
             return request(url, 'POST', data);
-        }).catch((error) => {
-            wx.showToast({
-                title: error.msg || error.message || error.errMsg || '出错了',
-                icon: 'none',
-                duration: 2000
-            })
         })
     },
     request(url, data) {
@@ -58,19 +46,11 @@ const request = (url, method, _data = {}) => {
                     wx.setStorageSync('userCode', '');
                 } else if (data.code == 1) {
                     resolve(data);
-                } else {
-                    wx.showModal({
-                        title: '错误',
-                        content: data.msg || '出错啦',
-                        success (res) {
-                            if (res.confirm) {
-                                console.log('用户点击确定')
-                            } else if (res.cancel) {
-                                console.log('用户点击取消')
-                            }
-                        }
-                    })
-                      
+                } else {   
+                    reject({
+                        code: 0,
+                        msg: data.msg || '出错啦'
+                    }) 
                 }
             },
             fail: (err) => {

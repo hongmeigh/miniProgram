@@ -52,6 +52,7 @@
   height: 100rpx;
   display: block;
   float: left;
+  border-radius: 50rpx;
 }
 .comment-list-wrap .comment-item .comment-cont {
   float: left;
@@ -89,7 +90,7 @@
     overflow: hidden;
 }
 .publish-comment .publish-input {
-    width: 600rpx;
+    width: 660rpx;
     height: 70rpx;
     border-radius: 35rpx;
     padding-left: 40rpx;

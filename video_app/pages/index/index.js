@@ -38,6 +38,12 @@ Page({
       this.setData({
         videoList: res.data.list || []
       })
+    }).catch((error) => {
+      wx.showToast({
+          title: error.msg || error.message || error.errMsg || '出错了',
+          icon: 'none',
+          duration: 2000
+      })
     })
   },
   query() {
@@ -47,6 +53,12 @@ Page({
       res.data = res.data || {};
       this.setData({
         videoLiveList: res.data.val ? JSON.parse(res.data.val) : []
+      })
+    }).catch((error) => {
+      wx.showToast({
+          title: error.msg || error.message || error.errMsg || '出错了',
+          icon: 'none',
+          duration: 2000
       })
     })
   },

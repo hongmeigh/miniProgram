@@ -61,6 +61,12 @@ Page({
                 videoDetail: res.data.content.replace(/<img /g, '<img class="rich_img" '),
                 file: res.data.attach ? JSON.parse(res.data.attach)[0] : ''
             })
+        }).catch((error) => {
+            wx.showToast({
+                title: error.msg || error.message || error.errMsg || '出错了',
+                icon: 'none',
+                duration: 2000
+            })
         })
     },
     getCommentList() {
@@ -95,6 +101,12 @@ Page({
                 commentList: this.data.commentList.concat(res.data.list),
                 page: this.data.page + 1
             })
+        }).catch((error) => {
+            wx.showToast({
+                title: error.msg || error.message || error.errMsg || '出错了',
+                icon: 'none',
+                duration: 2000
+            })
         })
     },
     getuserinfo(e) {
@@ -109,6 +121,12 @@ Page({
             res.data = res.data || {};
             this.setData({
                 userInfo: res.data
+            })
+        }).catch((error) => {
+            wx.showToast({
+                title: error.msg || error.message || error.errMsg || '出错了',
+                icon: 'none',
+                duration: 2000
             })
         })
     },
@@ -157,6 +175,11 @@ Page({
             })
         })
     },
+    toWriteComment() {
+        wx.navigateTo({
+            url: `/pages/writecomment/writecomment?id=${this.videoId}`
+        })
+    },
     hidePop() {
         this.setData({
             popShow: false
@@ -179,7 +202,13 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+            page: 1,
+            totalPage: 1,
+            commentList: []
+        }, () => {
+            this.getCommentList();
+        })
     },
 
     /**

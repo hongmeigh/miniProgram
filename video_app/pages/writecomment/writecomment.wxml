@@ -1,2 +1,15 @@
 <!--pages/writecomment/writecomment.wxml-->
-<text>pages/writecomment/writecomment.wxml</text>
+<view class="write-comment">
+    <view bindtap="publish" class="publish">发布</view>
+    <textarea class="publish-textarea" type="text" placeholder="请填写评论" value="{{commentValue}}" bindinput="bindKeyInput"/>
+    <view wx:if="{{popShow}}" class="popup-wrap">
+        <view bindtap="hidePop" class="black-bg"></view>
+        <view class="popup">
+            <image bindtap="hidePop" class="close" src="../../images/close.png"></image>
+            <view class="cont">
+                请先授权登录
+            </view>
+            <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="getuserinfo">去授权</button>
+        </view>
+    </view>
+</view>

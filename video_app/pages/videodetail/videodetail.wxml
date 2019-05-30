@@ -18,8 +18,8 @@
         </scroll-view>
         <scroll-view scroll-y style="height: {{height}}rpx" wx:if="{{tabIndex == 2}}" class="comment">
             <view class="publish-comment">
-                <input class="publish-input" type="text" placeholder="发布评论" value="{{commentValue}}" bindinput="bindKeyInput"/>
-                <view bindtap="publish" class="publish">发布</view>
+                <input disabled class="publish-input" bindtap="toWriteComment" type="text" placeholder="发布评论" value="{{commentValue}}" bindinput="bindKeyInput"/>
+                <!-- <view bindtap="publish" class="publish">发布</view> -->
             </view>
             <view class="comment-list-wrap">
                 <view wx:for="{{commentList}}" wx:key="{{index}}" class="comment-item">

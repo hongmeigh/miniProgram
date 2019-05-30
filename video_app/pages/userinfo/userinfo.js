@@ -41,6 +41,12 @@ Page({
                 sex: res.data.sex || '',
                 mobile: res.data.phone_no || ''
             })
+        }).catch((error) => {
+            wx.showToast({
+                title: error.msg || error.message || error.errMsg || '出错了',
+                icon: 'none',
+                duration: 2000
+            })
         })
     },
 
@@ -76,7 +82,11 @@ Page({
             })
             // update globalData.userInfo if needed
         }).catch((error) => {
-            console.log(error)
+            wx.showToast({
+                title: error.msg || error.message || error.errMsg || '出错了',
+                icon: 'none',
+                duration: 2000
+            })
         })
     },
     chooseImg() {
