@@ -94,10 +94,15 @@ Page({
             });
             return;
         }
+        if (this.submit) {
+            return;
+        }
+        this.submit = true;
         ajaxApi.publishComment({
             content: this.data.commentValue,
             video_id: this.videoId
         }).then((res = {}) => {
+            this.submit = false;
             console.log(222, res)
             wx.showToast({
                 title: '发布成功',
@@ -110,6 +115,7 @@ Page({
                 })
             }, 1000)
         }).catch((error) => {
+            this.submit = false;
             wx.showToast({
                 title: error.msg || error.message || error.errMsg || '出错了',
                 icon: 'none',

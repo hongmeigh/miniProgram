@@ -73,6 +73,10 @@ Page({
         if (this.data.page > this.data.totalPage) {
             return;
         }
+        if (this.load) {
+            return;
+        }
+        this.load = true;
         this.setData({
             loadText: '加载中...',  
         })
@@ -81,6 +85,7 @@ Page({
             page_no: this.data.page,
             video_id: this.videoId
         }).then((res = {}) => {
+            this.load = false;
             console.log(res);
             res.data = res.data || {};
             res.data.list = res.data.list || [];
@@ -102,6 +107,7 @@ Page({
                 page: this.data.page + 1
             })
         }).catch((error) => {
+            this.load = false;
             wx.showToast({
                 title: error.msg || error.message || error.errMsg || '出错了',
                 icon: 'none',
