@@ -42,6 +42,7 @@ const request = (url, method, _data = {}) => {
                 // console.log(res)
                 // if (statusCode == 401 || statusCode == 403) {
                 if (statusCode == 401 || statusCode == 403 || data.code == 401 || data.code == 1001 || data.code == 403 || data.code == 605) {
+                    login();
                     wx.setStorageSync('token', '');
                     wx.setStorageSync('userCode', '');
                 } else if (data.code == 1) {

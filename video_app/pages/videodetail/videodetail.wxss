@@ -7,7 +7,7 @@
 }
 .video-wrap .video-v {
     width: 100%;
-    height: 400rpx;
+    height: 425rpx;
 }
 .video-info {
     margin-top: 60rpx;
