@@ -1,5 +1,6 @@
 // pages/writecomment/writecomment.js
 import {ajaxApi} from '../../utils/api.js';
+import login from '../../utils/login.js';
 Page({
 
     /**
@@ -17,7 +18,10 @@ Page({
      */
     onLoad: function(options) {
         this.videoId = options.id || '';
-        this.queryUserInfo();
+        login().then(() => {
+            this.queryUserInfo();
+        })
+        
     },
     queryUserInfo() {
         ajaxApi.getUserInfo().then((res = {}) => {

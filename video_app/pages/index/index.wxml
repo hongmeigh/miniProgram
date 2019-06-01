@@ -6,11 +6,11 @@
     </view>
     <scroll-view scroll-x wx:if="{{videoLiveList.length}}" class="video-live">
         <view class="live-wrap">
-            <view wx:for="{{videoLiveList}}" wx:key="{{index}}" class="live-item item-{{index === 0 ? 'll' : ''}}">
+            <view bindtap="toMeeting" data-url="{{item.url}}" wx:for="{{videoLiveList}}" wx:key="{{index}}" class="live-item item-{{index === 0 ? 'll' : ''}}">
                 <image class="bg-img" src="{{item.imageUrl}}"></image>
                 <!-- <image class="live-icon" src="../../images/live.png"></image> -->
                 <view class="live-label">
-                    直播中...
+                    会议预告
                 </view>
             </view>
         </view>

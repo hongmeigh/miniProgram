@@ -7,7 +7,8 @@
         "pages/videodetail/videodetail",
         "pages/history/history",
         "pages/userinfo/userinfo",
-        "pages/writecomment/writecomment"
+        "pages/writecomment/writecomment",
+        "pages/meetingpreview/meetingpreview"
     ],
     "window": {
         "backgroundTextStyle": "light",

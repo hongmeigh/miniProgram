@@ -8,14 +8,16 @@ function getToken() {
 
 const HTTP = {
     get(url, data) {
-        return login().then(() => {
-            return request(url, 'GET', data);
-        })
+        return request(url, 'GET', data);
+        // return login().then(() => {
+        //     return request(url, 'GET', data);
+        // })
     },
     post(url, data) {
-        return login().then(() => {
-            return request(url, 'POST', data);
-        })
+        return request(url, 'POST', data);
+        // return login().then(() => {
+        //     return request(url, 'POST', data);
+        // })
     },
     request(url, data) {
         return request(url, 'POST', data);

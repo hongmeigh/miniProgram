@@ -1,5 +1,6 @@
 // pages/videolist/videolist.js
 import {ajaxApi} from '../../utils/api.js';
+import login from '../../utils/login.js';
 
 Page({
 
@@ -42,7 +43,10 @@ Page({
                 title: '视频列表'
             })
         }
-        this.searchVideo();
+        login().then(() => {
+          this.searchVideo();
+        })
+        
     },
     searchVideo() {
       this.setData({

@@ -1,0 +1,7 @@
+.metting-wrap {
+    width: 100%;
+}
+.metting-wrap .meeting-img {
+    width: 100%;
+    display: block;
+}

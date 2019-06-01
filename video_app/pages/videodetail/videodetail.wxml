@@ -1,7 +1,13 @@
 <!--pages/videodetail/videodetail.wxml-->
 <view class="video-detail-wrap">
     <view class="video-wrap">
-        <video class="video-v" src="{{videoUrl}}" controls></video>
+        <video object-fit="fill" class="video-v" src="{{videoUrl}}" controls></video>
+        <view class="share-wrap">
+            <text class="float-l">转发数: 10000</text>
+            <button class="share-btn float-r" hover-class="none" open-type="share">
+                <image src="../../images/share.png"></image>
+            </button>
+        </view>
     </view>
     <view class="video-info">
         <view class="info-tab">

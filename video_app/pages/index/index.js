@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import {ajaxApi} from '../../utils/api.js';
+import login from '../../utils/login.js'
 
 Page({
   data: {
@@ -25,8 +26,15 @@ Page({
     })
   },
   onLoad: function () {
-    this.searchVideo();
-    this.query();
+    login().then(() => {
+      this.searchVideo();
+      this.query();
+    })
+  },
+  toMeeting(e) {
+    wx.navigateTo({
+      url: `/pages/meetingpreview/meetingpreview?url=${e.currentTarget.dataset.url || ''}`
+    })
   },
   searchVideo() {
     ajaxApi.getVideoList({

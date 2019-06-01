@@ -1,6 +1,7 @@
 // pages/videodetail/videodetail.js
 import {ajaxApi} from '../../utils/api.js';
 import {formatTime} from '../../utils/util.js';
+import login from '../../utils/login.js'
 Page({
     data: {
         tabIndex: 0,
@@ -20,6 +21,8 @@ Page({
             name: '',
             url: ''
         },
+        title: '',
+        video_cover: '',
         height: (wx.getSystemInfoSync().screenHeight - 360) * 2
     },
 
@@ -28,17 +31,25 @@ Page({
      */
     onLoad: function (options) {
         this.videoId = options.id;
-        this.getVideoDetail();
-        this.getCommentList();
-        this.queryUserInfo();
+        login().then(() => {
+            this.getVideoDetail();
+            this.getCommentList();
+            this.queryUserInfo();
+        })
         console.log(wx.getSystemInfoSync().windowHeight, wx.getSystemInfoSync().screenHeight)
     },
     preview() {
         const self = this;
+        wx.showToast({
+            title: '正在下载文件',
+            icon: 'loading',
+            duration: 200000
+        })
         wx.downloadFile({
             // 示例 url，并非真实存在
             url: self.data.file.url,
             success: function (res) {
+                wx.hideToast();
                 const filePath = res.tempFilePath
                 wx.openDocument({
                     filePath: filePath,
@@ -46,6 +57,9 @@ Page({
                         console.log('打开文档成功')
                     }
                 })
+            },
+            fail: function() {
+                wx.hideToast();
             }
         })
     },
@@ -59,7 +73,9 @@ Page({
                 videoUrl: res.data.video_url,
                 teacherInfo: res.data.presenter_profile.replace(/<img /g, '<img class="rich_img" '),
                 videoDetail: res.data.content.replace(/<img /g, '<img class="rich_img" '),
-                file: res.data.attach ? JSON.parse(res.data.attach)[0] : ''
+                file: res.data.attach ? JSON.parse(res.data.attach)[0] : '',
+                title: res.data.title,
+                video_cover: res.data.video_cover
             })
         }).catch((error) => {
             wx.showToast({
@@ -249,6 +265,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return {
+            title: this.data.title || '视频',
+            imageUrl: this.data.video_cover,
+            path: `/pages/videodetail/videodetail?id=${this.videoId}`
+        }
     }
 })

@@ -3,19 +3,21 @@
 }
 .video-wrap {
     width: 100%;
-    height: 400rpx;
+    background-color: #fff;
 }
 .video-wrap .video-v {
     width: 100%;
-    height: 425rpx;
+    height: 400rpx;
+    display: block;
 }
 .video-info {
-    margin-top: 60rpx;
+    margin-top: 30rpx;
     background-color: #fff;
 }
 .video-info .info-tab {
     display: flex;
     height: 90rpx;
+    box-shadow: 10rpx 0 20rpx #eee;
 }
 .video-info .info-tab .tab-item {
     flex: 1;
@@ -23,6 +25,7 @@
     text-align: center;
     font-size: 28rpx;
     color: #333;
+    font-weight: bold;
 }
 .video-info .info-tab .tab-active {
     border-bottom: 2rpx solid #A020F0;
@@ -160,4 +163,34 @@
     color: #fff;
     background-color: #A020F0;
     border-radius: 10rpx;
+}
+.share-wrap {
+    font-size: 28rpx;
+    color: #333;
+    padding: 26rpx 40rpx;
+    overflow: hidden;
+}
+.share-wrap .float-l {
+    float: left;
+}
+.share-wrap .float-r {
+    float: right;
+}
+.share-wrap .share-btn {
+    width: 40rpx;
+    height: 40rpx;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    line-height: 40rpx;
+    display: block;
+    overflow: visible;
+}
+.share-wrap .share-btn::after {
+    border: none;
+}
+.share-wrap .share-btn image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
 }
