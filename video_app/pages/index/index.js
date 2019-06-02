@@ -32,8 +32,11 @@ Page({
     })
   },
   toMeeting(e) {
+    console.log(e);
+    const index = e.currentTarget.dataset.index;
+    wx.setStorageSync('preview', this.data.videoLiveList[index].preview);
     wx.navigateTo({
-      url: `/pages/meetingpreview/meetingpreview?url=${e.currentTarget.dataset.url || ''}`
+      url: '/pages/meetingpreview/meetingpreview'
     })
   },
   searchVideo() {

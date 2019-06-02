@@ -1,7 +1,11 @@
 .metting-wrap {
-    width: 100%;
+    padding: 0 20rpx;
+    font-size: 28rpx;
 }
 .metting-wrap .meeting-img {
     width: 100%;
     display: block;
+}
+.rich_img {
+    max-width: 100%;
 }

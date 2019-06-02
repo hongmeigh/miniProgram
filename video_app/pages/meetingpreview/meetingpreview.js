@@ -1,21 +1,46 @@
 // pages/meetingpreview/meetingpreview.js
+import {ajaxApi} from '../../utils/api.js';
+import login from '../../utils/login.js'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        url: ''
+        previewCont: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(wx.getStorageSync('preview'));
         this.setData({
-            url: options.url || ''
+            previewCont: wx.getStorageSync('preview') ? wx.getStorageSync('preview').replace(/<img /g, '<img class="rich_img" ') : ''
         })
+        // this.index = options.index || 0;
+        // console.log(this.index)
+        // login().then(() => {
+        //     this.query();
+        // })
     },
+    query() {
+        ajaxApi.queryLiveUrl({
+          name: "livebroad"
+        }).then((res = {}) => {
+          res.data = res.data || {};
+          const videoLiveList = res.data.val ? JSON.parse(res.data.val) : [];
+          this.setData({
+            previewCont: videoLiveList[this.index].preview.replace(/<img /g, '<img class="rich_img" ')
+          })
+        }).catch((error) => {
+          wx.showToast({
+              title: error.msg || error.message || error.errMsg || '出错了',
+              icon: 'none',
+              duration: 2000
+          })
+        })
+      },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

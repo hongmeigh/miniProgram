@@ -1,3 +1,3 @@
 <view class="metting-wrap">
-    <image mode="aspectFit" class="meeting-img" src="{{url}}"></image>
+    <rich-text nodes="{{previewCont}}" bindtap="tap"></rich-text>
 </view> 
